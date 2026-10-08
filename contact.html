@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Aurea Dental Studio</title>
+<meta name="description" content="Book a consultation at Aurea Dental Studio — visit us, call us, or send an enquiry. We respond personally within 24 hours.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<style>
+:root{
+  --charcoal:#1A1A1A; --espresso:#2C1810; --ink:#0F0F0F;
+  --gold:#C9A961; --gold-soft:#E3CE9A; --rose:#E8B4A0;
+  --cream:#FAF6F0; --ivory:#FDFBF7; --stone:#8B8378;
+  --line:rgba(26,26,26,.12);
+  --font-display:'Playfair Display', serif;
+  --font-body:'Inter', sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --container:1280px; --radius:4px; --radius-lg:12px;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body{ font-family:var(--font-body); color:var(--ink); background:var(--ivory); overflow-x:hidden; line-height:1.7; font-size:15.5px; }
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 40px; }
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:500; line-height:1.15; color:var(--charcoal); letter-spacing:-0.01em; }
+section{ position:relative; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } }
+::selection{ background:var(--gold); color:var(--ivory); }
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:var(--cream); }
+::-webkit-scrollbar-thumb{ background:var(--gold); border-radius:8px; }
+
+.btn{ position:relative; display:inline-flex; align-items:center; gap:12px; padding:18px 36px; font-weight:500; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--charcoal); background:transparent; border:1px solid var(--charcoal); border-radius:var(--radius); overflow:hidden; isolation:isolate; cursor:pointer; transition:color .5s var(--ease), border-color .5s var(--ease); }
+.btn span{ position:relative; z-index:2; }
+.btn i{ position:relative; z-index:2; transition:transform .5s var(--ease); font-size:.7rem; }
+.btn::before{ content:''; position:absolute; inset:auto 0 0 0; height:0; background:var(--charcoal); z-index:1; transition:height .5s var(--ease-out); }
+.btn:hover{ color:var(--ivory); } .btn:hover::before{ height:100%; } .btn:hover i{ transform:translateX(4px); }
+.btn.gold{ border-color:var(--gold); color:var(--gold); } .btn.gold::before{ background:var(--gold); } .btn.gold:hover{ color:var(--charcoal); }
+.btn.ivory{ border-color:rgba(253,251,247,.4); color:var(--ivory); } .btn.ivory::before{ background:var(--ivory); } .btn.ivory:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.link-arrow{ display:inline-flex; align-items:center; gap:10px; font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500; color:var(--charcoal); padding-bottom:4px; border-bottom:1px solid var(--line); transition:color .3s, border-color .3s; }
+.link-arrow i{ font-size:.7rem; transition:transform .4s var(--ease); }
+.link-arrow:hover{ color:var(--gold); border-color:var(--gold); }
+.link-arrow:hover i{ transform:translateX(6px); }
+
+.logo{ display:flex; align-items:center; gap:12px; flex-shrink:0; font-family:var(--font-display); font-size:1.35rem; font-weight:600; color:var(--charcoal); }
+.logo-mark{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid var(--gold); color:var(--gold); font-family:var(--font-display); font-size:1.1rem; font-weight:600; transition:all .4s var(--ease); }
+.logo:hover .logo-mark{ background:var(--gold); color:var(--ivory); }
+.logo em{ font-style:italic; color:var(--gold); font-weight:400; }
+
+header{ position:fixed; inset:0 0 auto 0; z-index:1000; padding:26px 0; transition:all .5s var(--ease); }
+header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:40px; }
+nav.main-nav ul{ display:flex; gap:8px; align-items:center; }
+nav.main-nav a{ color:var(--charcoal); font-size:.82rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; position:relative; padding:10px 16px; transition:color .3s; }
+nav.main-nav a::after{ content:''; position:absolute; left:16px; bottom:6px; right:16px; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease-out); }
+nav.main-nav a:hover{ color:var(--gold); } nav.main-nav a:hover::after{ transform:scaleX(1); }
+nav.main-nav a.active{ color:var(--gold); } nav.main-nav a.active::after{ transform:scaleX(1); }
+.header-right{ display:flex; align-items:center; gap:20px; }
+.icon-btn{ color:var(--charcoal); font-size:1rem; cursor:pointer; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .3s var(--ease); }
+.icon-btn:hover{ background:var(--gold); color:var(--ivory); }
+.header-right .btn{ padding:14px 26px; font-size:.72rem; letter-spacing:.18em; }
+.burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:10px; }
+.burger span{ width:24px; height:1.5px; background:var(--charcoal); transition:.3s; }
+header.scrolled{ background:var(--ivory); padding:16px 0; box-shadow:0 4px 30px rgba(26,26,26,.06); border-bottom:1px solid var(--line); }
+header.transparent .logo, header.transparent nav.main-nav a, header.transparent .icon-btn{ color:var(--ivory); }
+header.transparent .logo-mark{ border-color:var(--gold); color:var(--gold); }
+header.transparent .burger span{ background:var(--ivory); }
+header.transparent .header-right .btn{ border-color:rgba(253,251,247,.5); color:var(--ivory); }
+header.transparent .header-right .btn::before{ background:var(--ivory); }
+header.transparent .header-right .btn:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.mobile-nav{ position:fixed; inset:0; z-index:1500; background:var(--charcoal); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:26px; transform:translateY(-100%); transition:transform .6s var(--ease-out); visibility:hidden; }
+.mobile-nav.open{ transform:translateY(0); visibility:visible; }
+.mobile-nav a{ color:var(--ivory); font-family:var(--font-display); font-size:1.8rem; }
+.mobile-nav a:hover, .mobile-nav a.active{ color:var(--gold); }
+.mobile-nav .btn{ font-family:var(--font-body); font-size:.75rem; margin-top:14px; }
+.mobile-close{ position:absolute; top:28px; right:32px; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ivory); font-size:1.3rem; cursor:pointer; }
+.mobile-close:hover{ background:var(--gold); color:var(--charcoal); }
+
+/* PAGE BANNER */
+.page-banner{
+  position:relative; min-height:70vh;
+  display:flex; align-items:center;
+  background:var(--espresso); overflow:hidden;
+  padding:180px 0 120px;
+}
+.page-banner-bg{ position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center; opacity:.35; filter:brightness(.65); }
+.page-banner-tint{ position:absolute; inset:0; background: radial-gradient(circle at 70% 40%, rgba(201,169,97,.14), transparent 55%), linear-gradient(105deg, rgba(15,15,15,.94) 0%, rgba(44,24,16,.75) 60%, rgba(15,15,15,.5) 100%); }
+.page-banner-content{ position:relative; z-index:2; max-width:780px; }
+.page-banner h1{ color:var(--ivory); font-size:clamp(2.6rem, 5.4vw, 4.6rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; margin-bottom:24px; }
+.page-banner h1 em{ font-style:italic; color:var(--gold); }
+.page-banner p{ color:rgba(253,251,247,.7); font-size:1.08rem; font-weight:300; max-width:520px; line-height:1.75; }
+.eyebrow{ display:inline-flex; align-items:center; gap:14px; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; font-weight:600; color:var(--gold); margin-bottom:22px; }
+.eyebrow::before{ content:''; width:36px; height:1px; background:var(--gold); }
+.page-banner .eyebrow{ color:var(--gold-soft); }
+
+/* INFO CARDS */
+.info-strip{ background:var(--ivory); padding:0; position:relative; z-index:3; margin-top:-80px; }
+.info-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:0; box-shadow:0 30px 70px rgba(26,26,26,.1); border-radius:var(--radius-lg); overflow:hidden; }
+.info-card{ background:var(--ivory); padding:48px 36px; text-align:center; border-right:1px solid var(--line); position:relative; overflow:hidden; transition:all .5s var(--ease); }
+.info-card:last-child{ border-right:none; }
+.info-card::before{ content:''; position:absolute; left:0; bottom:0; width:100%; height:0; background:var(--charcoal); z-index:0; transition:height .6s var(--ease-out); }
+.info-card:hover::before{ height:100%; }
+.info-card > *{ position:relative; z-index:1; }
+.info-icon{ width:64px; height:64px; margin:0 auto 24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; color:var(--gold); border:1px solid var(--gold); transition:all .4s var(--ease); }
+.info-card:hover .info-icon{ background:var(--gold); color:var(--charcoal); transform:scale(1.08); }
+.info-card h4{ font-size:1.1rem; margin-bottom:12px; transition:color .4s; }
+.info-card p{ color:var(--stone); font-size:.94rem; line-height:1.65; font-weight:300; transition:color .4s; }
+.info-card p a{ color:var(--charcoal); font-weight:500; border-bottom:1px solid var(--line); transition:all .3s; }
+.info-card p a:hover{ color:var(--gold); border-color:var(--gold); }
+.info-card:hover h4{ color:var(--ivory); }
+.info-card:hover p{ color:rgba(253,251,247,.75); }
+.info-card:hover p a{ color:var(--gold); border-color:var(--gold); }
+
+/* CONTACT MAIN */
+.contact-main{ padding:130px 0; background:var(--cream); position:relative; overflow:hidden; }
+.contact-main::before{ content:''; position:absolute; top:-20%; right:-10%; width:50%; height:140%; background:radial-gradient(circle, rgba(201,169,97,.06), transparent 60%); }
+.contact-main .wrap{ position:relative; z-index:2; }
+
+.contact-head{ text-align:center; max-width:720px; margin:0 auto 70px; }
+.contact-head .eyebrow{ justify-content:center; }
+.contact-head .eyebrow::before, .contact-head .eyebrow::after{ content:''; width:36px; height:1px; background:var(--gold); }
+.contact-head h2{ font-size:clamp(2rem, 3.4vw, 2.9rem); font-weight:400; line-height:1.18; }
+.contact-head h2 em{ font-style:italic; color:var(--gold); }
+
+.contact-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:70px; align-items:start; }
+
+.contact-form-wrap{ background:var(--ivory); padding:60px 56px; border-radius:var(--radius-lg); box-shadow:0 30px 70px rgba(26,26,26,.06); border:1px solid var(--line); }
+.contact-form-wrap h3{ font-size:1.55rem; margin-bottom:10px; font-weight:500; }
+.contact-form-wrap > p{ color:var(--stone); font-size:.94rem; margin-bottom:36px; font-weight:300; }
+
+.contact-form .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.contact-form .form-group{ margin-bottom:22px; }
+.contact-form label{ display:block; font-size:.7rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--charcoal); margin-bottom:10px; }
+.contact-form input, .contact-form select, .contact-form textarea{
+  width:100%; padding:16px 0; background:transparent;
+  border:none; border-bottom:1px solid var(--line);
+  font-family:var(--font-body); font-size:1rem; color:var(--ink);
+  transition:border-color .3s; outline:none; border-radius:0;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus{ border-bottom-color:var(--gold); }
+.contact-form input::placeholder, .contact-form textarea::placeholder{ color:var(--stone); opacity:.7; }
+.contact-form textarea{ resize:vertical; min-height:120px; }
+.contact-form select{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C9A961' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right center; padding-right:24px; }
+.contact-form .btn{ width:100%; justify-content:center; margin-top:16px; }
+
+.form-note{ display:flex; align-items:center; justify-content:center; gap:10px; font-size:.78rem; color:var(--stone); margin-top:22px; text-align:center; }
+.form-note i{ color:var(--gold); }
+
+/* Side details */
+.contact-side{ display:grid; gap:26px; }
+.side-block{ background:var(--ivory); padding:36px 32px; border-radius:var(--radius-lg); border:1px solid var(--line); transition:all .4s var(--ease); }
+.side-block:hover{ transform:translateY(-4px); box-shadow:0 20px 40px rgba(26,26,26,.08); }
+.side-block h4{ font-size:1.05rem; margin-bottom:20px; display:flex; align-items:center; gap:12px; font-weight:500; }
+.side-block h4 i{ color:var(--gold); font-size:1rem; }
+.hours-list{ display:grid; gap:0; }
+.hours-list li{ display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); font-size:.94rem; color:#2c2c2c; font-weight:300; }
+.hours-list li:last-child{ border-bottom:none; }
+.hours-list li span:first-child{ color:var(--stone); }
+.hours-list li.today span:last-child{ color:var(--gold); font-weight:600; font-family:var(--font-display); font-style:italic; }
+
+.contact-list{ display:grid; gap:16px; }
+.contact-list li{ display:flex; gap:14px; align-items:flex-start; font-size:.94rem; color:#2c2c2c; line-height:1.6; font-weight:300; }
+.contact-list li i{ color:var(--gold); font-size:.85rem; margin-top:6px; min-width:16px; }
+.contact-list li a{ border-bottom:1px solid var(--line); transition:all .3s; color:var(--charcoal); font-weight:500; }
+.contact-list li a:hover{ color:var(--gold); border-color:var(--gold); }
+
+.social-inline{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+.social-inline a{ width:44px; height:44px; border-radius:50%; border:1px solid var(--line); color:var(--charcoal); display:flex; align-items:center; justify-content:center; font-size:.9rem; transition:all .35s var(--ease); }
+.social-inline a:hover{ background:var(--gold); border-color:var(--gold); color:var(--charcoal); transform:translateY(-3px); }
+
+/* Emergency */
+.emergency{ background:var(--charcoal); color:var(--ivory); padding:36px 32px; border-radius:var(--radius-lg); position:relative; overflow:hidden; }
+.emergency::before{ content:''; position:absolute; right:-40px; top:-40px; width:160px; height:160px; border-radius:50%; background:rgba(201,169,97,.08); }
+.emergency::after{ content:''; position:absolute; left:-30px; bottom:-30px; width:100px; height:100px; border-radius:50%; border:1px solid rgba(201,169,97,.2); }
+.emergency > *{ position:relative; z-index:1; }
+.emergency h4{ color:var(--ivory); font-size:1.05rem; margin-bottom:14px; display:flex; align-items:center; gap:12px; font-weight:500; }
+.emergency h4 i{ color:var(--gold); }
+.emergency p{ color:rgba(253,251,247,.7); font-size:.92rem; line-height:1.7; margin-bottom:22px; font-weight:300; }
+.emergency a{ display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:var(--charcoal); font-weight:600; font-size:.72rem; padding:14px 24px; letter-spacing:.2em; text-transform:uppercase; border-radius:var(--radius); transition:all .3s var(--ease); }
+.emergency a:hover{ background:var(--ivory); }
+.emergency a i{ font-size:.75rem; }
+
+/* MAP */
+.map-section{ padding:0; background:var(--ivory); }
+.map-frame{ position:relative; height:500px; overflow:hidden; }
+.map-frame iframe{ width:100%; height:100%; border:0; filter:grayscale(.4) contrast(1.05); }
+.map-card{ position:absolute; left:50px; top:50px; z-index:3; background:var(--ivory); padding:32px 34px; border-radius:var(--radius-lg); box-shadow:0 30px 70px rgba(26,26,26,.15); max-width:340px; }
+.map-card .eyebrow{ font-size:.66rem; margin-bottom:14px; }
+.map-card h4{ font-size:1.2rem; margin-bottom:12px; font-weight:500; }
+.map-card p{ color:var(--stone); font-size:.92rem; line-height:1.7; margin-bottom:18px; font-weight:300; }
+.map-card a{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--gold); display:inline-flex; align-items:center; gap:8px; transition:gap .3s; }
+.map-card a:hover{ gap:12px; }
+
+/* CTA */
+.cta-section{ padding:0; background:var(--espresso); position:relative; overflow:hidden; }
+.cta-section::before{ content:''; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center; opacity:.18; }
+.cta-section::after{ content:''; position:absolute; inset:0; background:linear-gradient(105deg, rgba(15,15,15,.92) 0%, rgba(44,24,16,.75) 50%, rgba(15,15,15,.55) 100%); }
+.cta-layout{ position:relative; z-index:2; display:grid; grid-template-columns:1.4fr 1fr; gap:80px; align-items:center; padding:110px 0; }
+.cta-content h2{ color:var(--ivory); font-size:clamp(2rem, 3.8vw, 3.2rem); font-weight:400; line-height:1.15; margin-bottom:26px; letter-spacing:-0.02em; }
+.cta-content h2 em{ font-style:italic; color:var(--gold); }
+.cta-content p{ color:rgba(253,251,247,.65); font-size:1rem; line-height:1.75; margin-bottom:44px; font-weight:300; max-width:520px; }
+.cta-content .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+.cta-badge{ position:relative; width:280px; height:280px; justify-self:end; display:flex; align-items:center; justify-content:center; }
+.cta-badge-ring{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(201,169,97,.3); animation:spin 30s linear infinite; }
+.cta-badge-ring::before{ content:''; position:absolute; top:-6px; left:50%; width:12px; height:12px; border-radius:50%; background:var(--gold); transform:translateX(-50%); }
+.cta-badge-inner{ width:200px; height:200px; border-radius:50%; background:var(--gold); color:var(--charcoal); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; transition:transform .5s var(--ease); }
+.cta-badge-inner:hover{ transform:scale(1.05); }
+.cta-badge-inner span:first-child{ font-family:var(--font-display); font-size:2.2rem; font-style:italic; font-weight:500; line-height:1; margin-bottom:8px; }
+.cta-badge-inner span:last-child{ font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; font-weight:700; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+/* FOOTER */
+footer{ background:var(--ink); color:rgba(253,251,247,.6); padding:100px 0 0; }
+.footer-top{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:60px; padding-bottom:70px; border-bottom:1px solid rgba(201,169,97,.12); }
+.footer-brand .logo{ color:var(--ivory); margin-bottom:22px; }
+.footer-brand p{ font-size:.92rem; line-height:1.75; font-weight:300; max-width:320px; }
+.footer-col h5{ color:var(--ivory); font-family:var(--font-body); font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; margin-bottom:26px; }
+.footer-col ul li{ margin-bottom:14px; }
+.footer-col ul a{ font-size:.92rem; font-weight:300; transition:color .3s, padding-left .3s; }
+.footer-col ul a:hover{ color:var(--gold); padding-left:6px; }
+.footer-newsletter p{ font-size:.92rem; margin-bottom:20px; font-weight:300; line-height:1.7; }
+.footer-newsletter form{ display:flex; align-items:center; border-bottom:1px solid rgba(201,169,97,.3); padding-bottom:12px; }
+.footer-newsletter input{ flex:1; background:none; border:none; color:var(--ivory); font-family:var(--font-body); font-size:.9rem; outline:none; padding:8px 0; }
+.footer-newsletter input::placeholder{ color:rgba(253,251,247,.35); }
+.footer-newsletter button{ color:var(--gold); font-size:1rem; }
+.footer-socials{ display:flex; gap:10px; margin-top:28px; }
+.footer-socials a{ width:40px; height:40px; border-radius:50%; border:1px solid rgba(201,169,97,.25); display:flex; align-items:center; justify-content:center; color:var(--ivory); font-size:.85rem; transition:all .35s var(--ease); }
+.footer-socials a:hover{ background:var(--gold); border-color:var(--gold); color:var(--charcoal); transform:translateY(-3px); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding:32px 0; font-size:.8rem; flex-wrap:wrap; gap:14px; color:rgba(253,251,247,.4); }
+.footer-bottom a{ color:var(--gold); }
+
+.scroll-top{ position:fixed; right:32px; bottom:32px; width:52px; height:52px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; visibility:hidden; transform:translateY(15px); transition:all .4s var(--ease); z-index:900; border:1px solid rgba(201,169,97,.3); }
+.scroll-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.scroll-top:hover{ background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
+
+@media(max-width:1100px){
+  .info-grid{ grid-template-columns:1fr; }
+  .info-card{ border-right:none; border-bottom:1px solid var(--line); }
+  .info-card:last-child{ border-bottom:none; }
+  .contact-grid{ grid-template-columns:1fr; gap:50px; }
+  .contact-form-wrap{ padding:48px 40px; }
+  .cta-layout{ grid-template-columns:1fr; gap:60px; }
+  .cta-badge{ justify-self:start; width:220px; height:220px; }
+  .cta-badge-inner{ width:160px; height:160px; }
+  .cta-badge-inner span:first-child{ font-size:1.8rem; }
+  .footer-top{ grid-template-columns:1fr 1fr; row-gap:50px; }
+}
+@media(max-width:900px){
+  nav.main-nav, .header-right .btn{ display:none; }
+  .burger{ display:flex; }
+}
+@media(max-width:768px){
+  .wrap{ padding:0 24px; }
+  .info-strip{ margin-top:-50px; }
+  .contact-main{ padding:90px 0; }
+  .contact-form-wrap{ padding:36px 28px; }
+  .contact-form .form-row{ grid-template-columns:1fr; gap:0; }
+  .map-frame{ height:360px; }
+  .map-card{ left:20px; top:20px; right:20px; max-width:none; padding:24px; }
+  .cta-layout{ padding:80px 0; }
+  .cta-badge{ display:none; }
+  .footer-top{ grid-template-columns:1fr; gap:50px; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+@media(max-width:520px){
+  .wrap{ padding:0 20px; }
+  .info-card{ padding:36px 24px; }
+  .contact-form-wrap{ padding:30px 22px; }
+  .cta-content .btn{ width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<header id="siteHeader" class="transparent">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="logo-mark">A</span><span>Aurea<em>.</em></span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <span class="icon-btn"><i class="fa-solid fa-phone"></i></span>
+      <a href="contact.html" class="btn"><span>Book Consultation</span></a>
+      <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="contact.html" class="btn ivory" style="margin-top:20px;"><span>Book Consultation</span></a>
+</div>
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-tint"></div>
+  <div class="wrap page-banner-content">
+    <div class="eyebrow">Get In Touch</div>
+    <h1>Let's begin with a <em>conversation</em>.</h1>
+    <p>Book a consultation, ask a question, or simply say hello — we respond personally within 24 hours.</p>
+  </div>
+</section>
+
+<!-- INFO CARDS -->
+<section class="info-strip">
+  <div class="wrap">
+    <div class="info-grid" data-aos="fade-up">
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+        <h4>Call Us</h4>
+        <p>Mon – Sat, 9am – 7pm<br>
+          <a href="tel:+911234567890">+91 12345 67890</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h4>Email Us</h4>
+        <p>We reply personally within 24 hours<br>
+          <a href="mailto:hello@aureastudio.com">hello@aureastudio.com</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h4>Visit Us</h4>
+        <p>12 Lansdowne Terrace<br>Pune, Maharashtra 411001</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTACT -->
+<section class="contact-main">
+  <div class="wrap">
+    <div class="contact-head" data-aos="fade-up">
+      <div class="eyebrow">Send a Message</div>
+      <h2>Tell us what <em>you have in mind</em>.</h2>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form-wrap" data-aos="fade-right">
+        <h3>Send an Enquiry</h3>
+        <p>We read every message personally. Expect a considered reply, not a template.</p>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — your message has been received. We will reply personally within 24 hours.'); this.reset();">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cName">Full Name</label>
+              <input type="text" id="cName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="cPhone">Phone</label>
+              <input type="tel" id="cPhone" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cEmail">Email Address</label>
+            <input type="email" id="cEmail" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cSubject">I'm enquiring about</label>
+            <select id="cSubject" required>
+              <option value="">Please select…</option>
+              <option value="consultation">Book a Consultation</option>
+              <option value="cosmetic">Cosmetic Dentistry</option>
+              <option value="implants">Dental Implants</option>
+              <option value="aligners">Clear Aligners</option>
+              <option value="restorative">Restorative Dentistry</option>
+              <option value="smile-design">Smile Design</option>
+              <option value="preventive">Preventive / Checkup</option>
+              <option value="second-opinion">A Second Opinion</option>
+              <option value="other">Something Else</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cMessage">Your Message</label>
+            <textarea id="cMessage" placeholder="Tell us a little about what you're looking for, or any concern you'd like to discuss…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn"><span>Send Message</span> <i class="fa-solid fa-arrow-right"></i></button>
+
+          <p class="form-note">
+            <i class="fa-solid fa-shield-heart"></i>
+            Your details are kept strictly private.
+          </p>
+        </form>
+      </div>
+
+      <!-- SIDE -->
+      <div class="contact-side" data-aos="fade-left">
+
+        <div class="side-block">
+          <h4><i class="fa-solid fa-clock"></i> Opening Hours</h4>
+          <ul class="hours-list">
+            <li><span>Monday – Friday</span><span>9:00 – 19:00</span></li>
+            <li><span>Saturday</span><span>9:00 – 15:00</span></li>
+            <li><span>Sunday</span><span>Closed</span></li>
+            <li><span>Holidays</span><span>By Appointment</span></li>
+          </ul>
+        </div>
+
+        <div class="side-block">
+          <h4><i class="fa-solid fa-address-book"></i> Studio Details</h4>
+          <ul class="contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> <span>12 Lansdowne Terrace, Koregaon Park,<br>Pune, Maharashtra 411001</span></li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:+911234567890">+91 12345 67890</a></li>
+            <li><i class="fa-brands fa-whatsapp"></i> <a href="#">+91 12345 67890</a></li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:hello@aureastudio.com">hello@aureastudio.com</a></li>
+          </ul>
+        </div>
+
+        <div class="side-block">
+          <h4><i class="fa-solid fa-share-nodes"></i> Follow Us</h4>
+          <p style="color:var(--stone);font-size:.92rem;margin-bottom:18px;font-weight:300;">Occasional glimpses of work and studio life — no marketing noise.</p>
+          <div class="social-inline">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="emergency">
+          <h4><i class="fa-solid fa-triangle-exclamation"></i> Dental Emergency?</h4>
+          <p>Severe pain, a broken tooth, or swelling after a previous treatment? Call us directly — we reserve slots for urgent cases.</p>
+          <a href="tel:+911234567890"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2705771888213!2d73.88937431489255!3d18.53753848739967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1d5e0e8e0e1%3A0x0!2sKoregaon%20Park%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Aurea Dental Studio Location"></iframe>
+    <div class="map-card">
+      <div class="eyebrow">The Studio</div>
+      <h4>Find Us Here</h4>
+      <p>12 Lansdowne Terrace, Koregaon Park,<br>Pune, Maharashtra 411001</p>
+      <a href="https://maps.google.com" target="_blank" rel="noopener">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-layout">
+      <div class="cta-content" data-aos="fade-right">
+        <div class="eyebrow">We're Here</div>
+        <h2>Prefer to talk it <em>through first</em>?</h2>
+        <p>Some questions are easier answered over the phone. Call us directly — you'll speak to a person, not a system.</p>
+        <div class="btn-row">
+          <a href="tel:+911234567890" class="btn ivory"><span>Call +91 12345 67890</span></a>
+          <a href="services.html" class="btn" style="border-color:rgba(253,251,247,.25);color:rgba(253,251,247,.85);"><span>See Services</span></a>
+        </div>
+      </div>
+      <div class="cta-badge" data-aos="zoom-in">
+        <div class="cta-badge-ring"></div>
+        <a href="tel:+911234567890" class="cta-badge-inner"><span>Call</span><span>Now</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">A</span><span>Aurea<em>.</em></span></a>
+        <p>A boutique dental studio in the heart of the city — offering considered, private care for adults who value calm and craft.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#cosmetic">Cosmetic Dentistry</a></li>
+          <li><a href="services.html#implants">Dental Implants</a></li>
+          <li><a href="services.html#aligners">Clear Aligners</a></li>
+          <li><a href="services.html#smile-design">Smile Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h5 style="color:var(--ivory);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:26px;">Newsletter</h5>
+        <p>Occasional notes on dentistry, design and studio news. No noise.</p>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you — you are subscribed.');">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aurea Dental Studio. All rights reserved.</span>
+      <span>Site by <a href="#">Aurea</a> · Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ duration: 900, once: true, offset: 60, easing: 'ease-out-cubic' });
+const header = document.getElementById('siteHeader');
+const scrollTopBtn = document.getElementById('scrollTop');
+const pageBanner = document.querySelector('.page-banner');
+function updateHeader(){
+  const y = window.scrollY;
+  const bannerH = pageBanner ? pageBanner.offsetHeight : 0;
+  if (y < bannerH - 100) { header.classList.add('transparent'); header.classList.remove('scrolled'); }
+  else { header.classList.remove('transparent'); header.classList.add('scrolled'); }
+  scrollTopBtn.classList.toggle('show', y > 600);
+}
+window.addEventListener('scroll', updateHeader);
+window.addEventListener('load', updateHeader);
+updateHeader();
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+const burger = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+burger.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') mobileNav.classList.remove('open'); });
+const navLinks = document.querySelectorAll('nav.main-nav a, .mobile-nav a');
+function fileOf(url) { let f = (url || '').split('#')[0].split('?')[0].split('/').pop().toLowerCase(); if (f === '' || f === 'home.html' || f === 'home') f = 'index.html'; return f; }
+function setActiveLink() { const currentPage = fileOf(window.location.pathname); navLinks.forEach(link => { if (link.classList.contains('btn')) return; link.classList.toggle('active', fileOf(link.getAttribute('href')) === currentPage); }); }
+window.addEventListener('DOMContentLoaded', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
+/* Highlight today's hours */
+(function(){
+  const today = new Date().getDay();
+  const items = document.querySelectorAll('.hours-list li');
+  items.forEach(i => i.classList.remove('today'));
+  if (today >= 1 && today <= 5 && items[0]) items[0].classList.add('today');
+  else if (today === 6 && items[1]) items[1].classList.add('today');
+  else if (today === 0 && items[2]) items[2].classList.add('today');
+})();
+</script>
+</body>
+</html>

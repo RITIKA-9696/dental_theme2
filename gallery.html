@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Aurea Dental Studio</title>
+<meta name="description" content="Selected smile transformations from Aurea Dental Studio — cosmetic, restorative and orthodontic case studies.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<style>
+:root{
+  --charcoal:#1A1A1A; --espresso:#2C1810; --ink:#0F0F0F;
+  --gold:#C9A961; --gold-soft:#E3CE9A; --rose:#E8B4A0;
+  --cream:#FAF6F0; --ivory:#FDFBF7; --stone:#8B8378;
+  --line:rgba(26,26,26,.12);
+  --font-display:'Playfair Display', serif;
+  --font-body:'Inter', sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --container:1280px; --radius:4px; --radius-lg:12px;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body{ font-family:var(--font-body); color:var(--ink); background:var(--ivory); overflow-x:hidden; line-height:1.7; font-size:15.5px; }
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 40px; }
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:500; line-height:1.15; color:var(--charcoal); letter-spacing:-0.01em; }
+section{ position:relative; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } }
+::selection{ background:var(--gold); color:var(--ivory); }
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:var(--cream); }
+::-webkit-scrollbar-thumb{ background:var(--gold); border-radius:8px; }
+
+.btn{ position:relative; display:inline-flex; align-items:center; gap:12px; padding:18px 36px; font-weight:500; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--charcoal); background:transparent; border:1px solid var(--charcoal); border-radius:var(--radius); overflow:hidden; isolation:isolate; cursor:pointer; transition:color .5s var(--ease), border-color .5s var(--ease); }
+.btn span{ position:relative; z-index:2; }
+.btn i{ position:relative; z-index:2; transition:transform .5s var(--ease); font-size:.7rem; }
+.btn::before{ content:''; position:absolute; inset:auto 0 0 0; height:0; background:var(--charcoal); z-index:1; transition:height .5s var(--ease-out); }
+.btn:hover{ color:var(--ivory); } .btn:hover::before{ height:100%; } .btn:hover i{ transform:translateX(4px); }
+.btn.gold{ border-color:var(--gold); color:var(--gold); } .btn.gold::before{ background:var(--gold); } .btn.gold:hover{ color:var(--charcoal); }
+.btn.ivory{ border-color:rgba(253,251,247,.4); color:var(--ivory); } .btn.ivory::before{ background:var(--ivory); } .btn.ivory:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.link-arrow{ display:inline-flex; align-items:center; gap:10px; font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500; color:var(--charcoal); padding-bottom:4px; border-bottom:1px solid var(--line); transition:color .3s, border-color .3s; }
+.link-arrow i{ font-size:.7rem; transition:transform .4s var(--ease); }
+.link-arrow:hover{ color:var(--gold); border-color:var(--gold); }
+.link-arrow:hover i{ transform:translateX(6px); }
+
+.logo{ display:flex; align-items:center; gap:12px; flex-shrink:0; font-family:var(--font-display); font-size:1.35rem; font-weight:600; color:var(--charcoal); }
+.logo-mark{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid var(--gold); color:var(--gold); font-family:var(--font-display); font-size:1.1rem; font-weight:600; transition:all .4s var(--ease); }
+.logo:hover .logo-mark{ background:var(--gold); color:var(--ivory); }
+.logo em{ font-style:italic; color:var(--gold); font-weight:400; }
+
+header{ position:fixed; inset:0 0 auto 0; z-index:1000; padding:26px 0; transition:all .5s var(--ease); }
+header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:40px; }
+nav.main-nav ul{ display:flex; gap:8px; align-items:center; }
+nav.main-nav a{ color:var(--charcoal); font-size:.82rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; position:relative; padding:10px 16px; transition:color .3s; }
+nav.main-nav a::after{ content:''; position:absolute; left:16px; bottom:6px; right:16px; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease-out); }
+nav.main-nav a:hover{ color:var(--gold); } nav.main-nav a:hover::after{ transform:scaleX(1); }
+nav.main-nav a.active{ color:var(--gold); } nav.main-nav a.active::after{ transform:scaleX(1); }
+.header-right{ display:flex; align-items:center; gap:20px; }
+.icon-btn{ color:var(--charcoal); font-size:1rem; cursor:pointer; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .3s var(--ease); }
+.icon-btn:hover{ background:var(--gold); color:var(--ivory); }
+.header-right .btn{ padding:14px 26px; font-size:.72rem; letter-spacing:.18em; }
+.burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:10px; }
+.burger span{ width:24px; height:1.5px; background:var(--charcoal); transition:.3s; }
+header.scrolled{ background:var(--ivory); padding:16px 0; box-shadow:0 4px 30px rgba(26,26,26,.06); border-bottom:1px solid var(--line); }
+header.transparent .logo, header.transparent nav.main-nav a, header.transparent .icon-btn{ color:var(--ivory); }
+header.transparent .logo-mark{ border-color:var(--gold); color:var(--gold); }
+header.transparent .burger span{ background:var(--ivory); }
+header.transparent .header-right .btn{ border-color:rgba(253,251,247,.5); color:var(--ivory); }
+header.transparent .header-right .btn::before{ background:var(--ivory); }
+header.transparent .header-right .btn:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.mobile-nav{ position:fixed; inset:0; z-index:1500; background:var(--charcoal); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:26px; transform:translateY(-100%); transition:transform .6s var(--ease-out); visibility:hidden; }
+.mobile-nav.open{ transform:translateY(0); visibility:visible; }
+.mobile-nav a{ color:var(--ivory); font-family:var(--font-display); font-size:1.8rem; }
+.mobile-nav a:hover, .mobile-nav a.active{ color:var(--gold); }
+.mobile-nav .btn{ font-family:var(--font-body); font-size:.75rem; margin-top:14px; }
+.mobile-close{ position:absolute; top:28px; right:32px; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ivory); font-size:1.3rem; cursor:pointer; }
+.mobile-close:hover{ background:var(--gold); color:var(--charcoal); }
+
+/* PAGE BANNER */
+.page-banner{
+  position:relative; min-height:70vh;
+  display:flex; align-items:center;
+  background:var(--espresso); overflow:hidden;
+  padding:180px 0 120px;
+}
+.page-banner-bg{ position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center; opacity:.35; filter:brightness(.65); }
+.page-banner-tint{ position:absolute; inset:0; background: radial-gradient(circle at 70% 40%, rgba(201,169,97,.14), transparent 55%), linear-gradient(105deg, rgba(15,15,15,.94) 0%, rgba(44,24,16,.75) 60%, rgba(15,15,15,.5) 100%); }
+.page-banner-content{ position:relative; z-index:2; max-width:780px; }
+.page-banner h1{ color:var(--ivory); font-size:clamp(2.6rem, 5.4vw, 4.6rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; margin-bottom:24px; }
+.page-banner h1 em{ font-style:italic; color:var(--gold); }
+.page-banner p{ color:rgba(253,251,247,.7); font-size:1.08rem; font-weight:300; max-width:520px; line-height:1.75; }
+.eyebrow{ display:inline-flex; align-items:center; gap:14px; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; font-weight:600; color:var(--gold); margin-bottom:22px; }
+.eyebrow::before{ content:''; width:36px; height:1px; background:var(--gold); }
+.page-banner .eyebrow{ color:var(--gold-soft); }
+
+/* GALLERY */
+.gallery-section{ padding:130px 0 100px; background:var(--ivory); }
+.gallery-head{ text-align:center; max-width:720px; margin:0 auto 60px; }
+.gallery-head .eyebrow{ justify-content:center; }
+.gallery-head .eyebrow::before, .gallery-head .eyebrow::after{ content:''; width:36px; height:1px; background:var(--gold); }
+.gallery-head h2{ font-size:clamp(2rem, 3.4vw, 2.9rem); font-weight:400; line-height:1.18; }
+.gallery-head h2 em{ font-style:italic; color:var(--gold); }
+
+/* FILTERS */
+.gallery-filters{ display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-bottom:60px; }
+.filter-btn{ padding:12px 24px; background:transparent; border:1px solid var(--line); color:var(--charcoal); font-family:var(--font-body); font-weight:500; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .35s var(--ease); border-radius:var(--radius); }
+.filter-btn:hover{ border-color:var(--gold); color:var(--gold); }
+.filter-btn.active{ background:var(--charcoal); border-color:var(--charcoal); color:var(--ivory); }
+
+/* GRID */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  gap:24px;
+}
+.gallery-tile{
+  position:relative; overflow:hidden; border-radius:var(--radius-lg);
+  cursor:pointer; transition:transform .5s var(--ease);
+}
+.gallery-tile.hide{ display:none; }
+.gallery-tile img{ width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease-out); }
+.gallery-tile:hover img{ transform:scale(1.06); }
+.gallery-tile::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(15,15,15,.88) 0%, transparent 55%); opacity:0; transition:opacity .5s var(--ease); }
+.gallery-tile:hover::after{ opacity:1; }
+.gallery-tile-overlay{ position:absolute; inset:auto 0 0 0; padding:32px; z-index:2; opacity:0; transform:translateY(14px); transition:all .5s var(--ease-out); }
+.gallery-tile:hover .gallery-tile-overlay{ opacity:1; transform:translateY(0); }
+.gallery-tile-cat{ font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:600; display:block; margin-bottom:10px; }
+.gallery-tile-overlay h4{ color:var(--ivory); font-size:1.35rem; font-weight:500; font-family:var(--font-display); margin-bottom:6px; }
+.gallery-tile-overlay p{ color:rgba(253,251,247,.7); font-size:.86rem; font-weight:300; }
+.gallery-zoom{ position:absolute; top:20px; right:20px; width:44px; height:44px; border-radius:50%; background:rgba(253,251,247,.95); color:var(--charcoal); display:flex; align-items:center; justify-content:center; font-size:.85rem; opacity:0; transform:translateY(-8px); transition:all .4s var(--ease); z-index:2; }
+.gallery-tile:hover .gallery-zoom{ opacity:1; transform:translateY(0); }
+
+/* Tile sizes */
+.tile-lg{ grid-column:span 8; grid-row:span 2; min-height:640px; }
+.tile-md{ grid-column:span 4; min-height:308px; }
+.tile-sm{ grid-column:span 4; min-height:308px; }
+.tile-full{ grid-column:span 12; min-height:400px; }
+
+/* FEATURE CASE */
+.feature-case{ padding:120px 0; background:var(--cream); }
+.feature-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:center; }
+.feature-media{ position:relative; height:600px; }
+.feature-media img{ width:100%; height:100%; object-fit:cover; border-radius:var(--radius-lg); box-shadow:0 40px 80px rgba(26,26,26,.14); }
+.feature-media::before{ content:''; position:absolute; left:-20px; top:20px; width:60px; height:60px; border-top:1px solid var(--gold); border-left:1px solid var(--gold); }
+.feature-media .badge-tag{ position:absolute; top:32px; left:32px; background:var(--gold); color:var(--charcoal); padding:10px 18px; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; font-weight:700; border-radius:var(--radius); }
+.feature-body h2{ font-size:clamp(1.8rem, 3vw, 2.6rem); font-weight:400; line-height:1.18; margin-bottom:24px; }
+.feature-body h2 em{ font-style:italic; color:var(--gold); }
+.feature-body > p{ color:var(--stone); font-size:1.02rem; line-height:1.8; margin-bottom:32px; font-weight:300; }
+.feature-list{ display:grid; gap:0; margin-bottom:34px; }
+.feature-list li{ padding:14px 0; border-bottom:1px solid var(--line); display:flex; gap:14px; align-items:flex-start; font-size:.95rem; color:#2c2c2c; }
+.feature-list li:first-child{ border-top:1px solid var(--line); }
+.feature-list li i{ color:var(--gold); margin-top:6px; font-size:.75rem; }
+.feature-meta{ display:flex; gap:40px; margin-bottom:36px; flex-wrap:wrap; }
+.feature-meta .item span{ display:block; font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--stone); margin-bottom:6px; font-weight:600; }
+.feature-meta .item strong{ font-family:var(--font-display); font-size:1.2rem; font-weight:500; font-style:italic; }
+
+/* CTA */
+.cta-section{ padding:0; background:var(--espresso); position:relative; overflow:hidden; }
+.cta-section::before{ content:''; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center; opacity:.18; }
+.cta-section::after{ content:''; position:absolute; inset:0; background:linear-gradient(105deg, rgba(15,15,15,.92) 0%, rgba(44,24,16,.75) 50%, rgba(15,15,15,.55) 100%); }
+.cta-layout{ position:relative; z-index:2; display:grid; grid-template-columns:1.4fr 1fr; gap:80px; align-items:center; padding:110px 0; }
+.cta-content h2{ color:var(--ivory); font-size:clamp(2rem, 3.8vw, 3.2rem); font-weight:400; line-height:1.15; margin-bottom:26px; letter-spacing:-0.02em; }
+.cta-content h2 em{ font-style:italic; color:var(--gold); }
+.cta-content p{ color:rgba(253,251,247,.65); font-size:1rem; line-height:1.75; margin-bottom:44px; font-weight:300; max-width:520px; }
+.cta-content .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+.cta-badge{ position:relative; width:280px; height:280px; justify-self:end; display:flex; align-items:center; justify-content:center; }
+.cta-badge-ring{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(201,169,97,.3); animation:spin 30s linear infinite; }
+.cta-badge-ring::before{ content:''; position:absolute; top:-6px; left:50%; width:12px; height:12px; border-radius:50%; background:var(--gold); transform:translateX(-50%); }
+.cta-badge-inner{ width:200px; height:200px; border-radius:50%; background:var(--gold); color:var(--charcoal); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; transition:transform .5s var(--ease); }
+.cta-badge-inner:hover{ transform:scale(1.05); }
+.cta-badge-inner span:first-child{ font-family:var(--font-display); font-size:2.2rem; font-style:italic; font-weight:500; line-height:1; margin-bottom:8px; }
+.cta-badge-inner span:last-child{ font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; font-weight:700; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+/* LIGHTBOX */
+.lightbox{ position:fixed; inset:0; z-index:2500; background:rgba(15,15,15,.96); backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity .45s var(--ease), visibility .45s var(--ease); }
+.lightbox.open{ opacity:1; visibility:visible; }
+.lightbox-img-wrap{ position:relative; max-width:92vw; max-height:82vh; transform:scale(.94); transition:transform .5s var(--ease); }
+.lightbox.open .lightbox-img-wrap{ transform:scale(1); }
+.lightbox-img-wrap img{ max-width:92vw; max-height:82vh; object-fit:contain; box-shadow:0 40px 80px rgba(0,0,0,.5); border-radius:var(--radius); }
+.lightbox-caption{ position:absolute; bottom:-52px; left:0; right:0; text-align:center; color:var(--ivory); font-family:var(--font-display); font-size:1.1rem; }
+.lightbox-caption span{ display:block; color:var(--gold); font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; font-weight:700; font-family:var(--font-body); margin-bottom:6px; }
+.lightbox-close, .lightbox-prev, .lightbox-next{ position:absolute; top:32px; width:48px; height:48px; border-radius:50%; background:rgba(253,251,247,.08); border:1px solid rgba(201,169,97,.35); color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.3s; font-size:1rem; }
+.lightbox-close{ right:32px; }
+.lightbox-prev, .lightbox-next{ top:50%; transform:translateY(-50%); }
+.lightbox-prev{ left:32px; } .lightbox-next{ right:32px; }
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover{ background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
+
+/* FOOTER */
+footer{ background:var(--ink); color:rgba(253,251,247,.6); padding:100px 0 0; }
+.footer-top{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:60px; padding-bottom:70px; border-bottom:1px solid rgba(201,169,97,.12); }
+.footer-brand .logo{ color:var(--ivory); margin-bottom:22px; }
+.footer-brand p{ font-size:.92rem; line-height:1.75; font-weight:300; max-width:320px; }
+.footer-col h5{ color:var(--ivory); font-family:var(--font-body); font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; margin-bottom:26px; }
+.footer-col ul li{ margin-bottom:14px; }
+.footer-col ul a{ font-size:.92rem; font-weight:300; transition:color .3s, padding-left .3s; }
+.footer-col ul a:hover{ color:var(--gold); padding-left:6px; }
+.footer-newsletter p{ font-size:.92rem; margin-bottom:20px; font-weight:300; line-height:1.7; }
+.footer-newsletter form{ display:flex; align-items:center; border-bottom:1px solid rgba(201,169,97,.3); padding-bottom:12px; }
+.footer-newsletter input{ flex:1; background:none; border:none; color:var(--ivory); font-family:var(--font-body); font-size:.9rem; outline:none; padding:8px 0; }
+.footer-newsletter input::placeholder{ color:rgba(253,251,247,.35); }
+.footer-newsletter button{ color:var(--gold); font-size:1rem; }
+.footer-socials{ display:flex; gap:10px; margin-top:28px; }
+.footer-socials a{ width:40px; height:40px; border-radius:50%; border:1px solid rgba(201,169,97,.25); display:flex; align-items:center; justify-content:center; color:var(--ivory); font-size:.85rem; transition:all .35s var(--ease); }
+.footer-socials a:hover{ background:var(--gold); border-color:var(--gold); color:var(--charcoal); transform:translateY(-3px); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding:32px 0; font-size:.8rem; flex-wrap:wrap; gap:14px; color:rgba(253,251,247,.4); }
+.footer-bottom a{ color:var(--gold); }
+
+.scroll-top{ position:fixed; right:32px; bottom:32px; width:52px; height:52px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; visibility:hidden; transform:translateY(15px); transition:all .4s var(--ease); z-index:900; border:1px solid rgba(201,169,97,.3); }
+.scroll-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.scroll-top:hover{ background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
+
+@media(max-width:1100px){
+  .tile-lg{ grid-column:span 12; min-height:520px; }
+  .tile-md, .tile-sm{ grid-column:span 6; }
+  .feature-grid{ grid-template-columns:1fr; gap:60px; }
+  .feature-media{ height:440px; }
+  .cta-layout{ grid-template-columns:1fr; gap:60px; }
+  .cta-badge{ justify-self:start; width:220px; height:220px; }
+  .cta-badge-inner{ width:160px; height:160px; }
+  .cta-badge-inner span:first-child{ font-size:1.8rem; }
+  .footer-top{ grid-template-columns:1fr 1fr; row-gap:50px; }
+}
+@media(max-width:900px){
+  nav.main-nav, .header-right .btn{ display:none; }
+  .burger{ display:flex; }
+}
+@media(max-width:768px){
+  .wrap{ padding:0 24px; }
+  .gallery-section{ padding:90px 0 60px; }
+  .tile-lg, .tile-md, .tile-sm, .tile-full{ grid-column:span 12; min-height:360px; }
+  .gallery-grid{ gap:16px; }
+  .feature-case{ padding:90px 0; }
+  .feature-media{ height:340px; }
+  .cta-layout{ padding:80px 0; }
+  .cta-badge{ display:none; }
+  .footer-top{ grid-template-columns:1fr; gap:50px; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+  .lightbox-prev{ left:12px; } .lightbox-next{ right:12px; }
+  .lightbox-close{ top:18px; right:18px; }
+  .lightbox-prev, .lightbox-next{ width:42px; height:42px; }
+}
+@media(max-width:520px){
+  .wrap{ padding:0 20px; }
+  .filter-btn{ padding:9px 16px; font-size:.66rem; }
+  .cta-content .btn{ width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<header id="siteHeader" class="transparent">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="logo-mark">A</span><span>Aurea<em>.</em></span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <span class="icon-btn"><i class="fa-solid fa-phone"></i></span>
+      <a href="contact.html" class="btn"><span>Book Consultation</span></a>
+      <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html" class="active">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn ivory" style="margin-top:20px;"><span>Book Consultation</span></a>
+</div>
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-tint"></div>
+  <div class="wrap page-banner-content">
+    <div class="eyebrow">Selected Work</div>
+    <h1>A gallery of <em>quiet transformations</em>.</h1>
+    <p>Real cases from the studio — cosmetic, restorative and orthodontic work, all completed with our signature unhurried approach.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="wrap">
+    <div class="gallery-head" data-aos="fade-up">
+      <div class="eyebrow">Portfolio</div>
+      <h2>Every smile here was <em>designed, not templated</em>.</h2>
+    </div>
+
+    <div class="gallery-filters" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="cosmetic">Cosmetic</button>
+      <button class="filter-btn" data-filter="implant">Implants</button>
+      <button class="filter-btn" data-filter="aligner">Aligners</button>
+      <button class="filter-btn" data-filter="whitening">Whitening</button>
+      <button class="filter-btn" data-filter="makeover">Makeovers</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+
+      <div class="gallery-tile tile-lg" data-cat="makeover" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=1400&q=80" alt="Full smile makeover">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Makeover</span>
+          <h4>Full Upper Arch Veneers</h4>
+          <p>Six hand-layered ceramics + whitening · 5 visits</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-md" data-cat="implant" data-aos="fade-up" data-aos-delay="60">
+        <img src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?auto=format&fit=crop&w=900&q=80" alt="Implant case">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Implant</span>
+          <h4>Single Anterior Implant</h4>
+          <p>Guided placement + custom crown</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-sm" data-cat="whitening" data-aos="fade-up" data-aos-delay="120">
+        <img src="https://images.unsplash.com/photo-1677026010083-78ec7f1b84ed?auto=format&fit=crop&w=900&q=80" alt="Whitening">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Whitening</span>
+          <h4>In-Office Whitening</h4>
+          <p>Six shades · single visit</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-md" data-cat="aligner" data-aos="fade-up" data-aos-delay="180">
+        <img src="https://images.unsplash.com/photo-1643660527071-52e37cf7c7ea?auto=format&fit=crop&w=900&q=80" alt="Clear aligners">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Aligner</span>
+          <h4>Adult Clear Aligner Case</h4>
+          <p>14 months · fully digital</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-md" data-cat="cosmetic" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?auto=format&fit=crop&w=900&q=80" alt="Cosmetic bonding">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Cosmetic</span>
+          <h4>Composite Edge Bonding</h4>
+          <p>4 upper incisors refined</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-md" data-cat="implant" data-aos="fade-up" data-aos-delay="60">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80" alt="Full arch implants">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Implant</span>
+          <h4>Full Arch Rehabilitation</h4>
+          <p>All-on-4 · ceramic finish</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-full" data-cat="makeover" data-aos="fade-up" data-aos-delay="120">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80" alt="Studio interior and case">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Makeover</span>
+          <h4>Restorative + Cosmetic Combined</h4>
+          <p>Crowns, bonding and whitening across three visits — full reconstruction</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-md" data-cat="whitening" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80" alt="Whitening and cleaning">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Whitening</span>
+          <h4>Hygiene + Whitening</h4>
+          <p>Full mouth refresh</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile tile-md" data-cat="aligner" data-aos="fade-up" data-aos-delay="60">
+        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=80" alt="Aligner case">
+        <div class="gallery-zoom"><i class="fa-solid fa-expand"></i></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-cat">Aligner</span>
+          <h4>Mixed Aligner + Bonding</h4>
+          <p>Combined treatment plan</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE CASE -->
+<section class="feature-case">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="feature-media" data-aos="fade-right">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1000&q=80" alt="Featured case">
+        <span class="badge-tag">Featured Case</span>
+      </div>
+      <div class="feature-body" data-aos="fade-left">
+        <div class="eyebrow">Case Study</div>
+        <h2>A full smile <em>reconsidered</em> in five visits.</h2>
+        <p>This patient arrived with worn edges, uneven colour, and two older crowns that no longer matched. We took a step back and planned the entire smile — proportion, shade and shape — before touching a single tooth.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Full diagnostic workup with photography and bite analysis</li>
+          <li><i class="fa-solid fa-check"></i> Six hand-layered ceramic veneers, upper arch</li>
+          <li><i class="fa-solid fa-check"></i> Two replacement crowns, shade-matched to the new veneers</li>
+          <li><i class="fa-solid fa-check"></i> Enamel-safe whitening on the lower arch</li>
+          <li><i class="fa-solid fa-check"></i> Final polish and review at 6 weeks</li>
+        </ul>
+        <div class="feature-meta">
+          <div class="item"><span>Visits</span><strong>5 sessions</strong></div>
+          <div class="item"><span>Duration</span><strong>6 weeks</strong></div>
+          <div class="item"><span>Approach</span><strong>Fully painless</strong></div>
+        </div>
+        <a href="contact.html" class="btn"><span>Discuss a Similar Case</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-layout">
+      <div class="cta-content" data-aos="fade-right">
+        <div class="eyebrow">Your Turn</div>
+        <h2>Let's design <em>your smile</em> next.</h2>
+        <p>Book a consultation — we'll show you exactly what's possible, with digital previews before we begin.</p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn ivory"><span>Book Consultation</span></a>
+          <a href="services.html" class="btn" style="border-color:rgba(253,251,247,.25);color:rgba(253,251,247,.85);"><span>Explore Services</span></a>
+        </div>
+      </div>
+      <div class="cta-badge" data-aos="zoom-in">
+        <div class="cta-badge-ring"></div>
+        <a href="contact.html" class="cta-badge-inner"><span>Book</span><span>Consultation</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">A</span><span>Aurea<em>.</em></span></a>
+        <p>A boutique dental studio in the heart of the city — offering considered, private care for adults who value calm and craft.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#cosmetic">Cosmetic Dentistry</a></li>
+          <li><a href="services.html#implants">Dental Implants</a></li>
+          <li><a href="services.html#aligners">Clear Aligners</a></li>
+          <li><a href="services.html#smile-design">Smile Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h5 style="color:var(--ivory);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:26px;">Newsletter</h5>
+        <p>Occasional notes on dentistry, design and studio news. No noise.</p>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you — you are subscribed.');">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aurea Dental Studio. All rights reserved.</span>
+      <span>Site by <a href="#">Aurea</a> · Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lightbox-prev" id="lightboxPrev"><i class="fa-solid fa-arrow-left"></i></button>
+  <button class="lightbox-next" id="lightboxNext"><i class="fa-solid fa-arrow-right"></i></button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption">
+      <span id="lightboxCat"></span>
+      <p id="lightboxTitle"></p>
+    </div>
+  </div>
+</div>
+
+<div class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ duration: 900, once: true, offset: 60, easing: 'ease-out-cubic' });
+const header = document.getElementById('siteHeader');
+const scrollTopBtn = document.getElementById('scrollTop');
+const pageBanner = document.querySelector('.page-banner');
+function updateHeader(){
+  const y = window.scrollY;
+  const bannerH = pageBanner ? pageBanner.offsetHeight : 0;
+  if (y < bannerH - 100) { header.classList.add('transparent'); header.classList.remove('scrolled'); }
+  else { header.classList.remove('transparent'); header.classList.add('scrolled'); }
+  scrollTopBtn.classList.toggle('show', y > 600);
+}
+window.addEventListener('scroll', updateHeader);
+window.addEventListener('load', updateHeader);
+updateHeader();
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+const burger = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+burger.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') mobileNav.classList.remove('open'); });
+const navLinks = document.querySelectorAll('nav.main-nav a, .mobile-nav a');
+function fileOf(url) { let f = (url || '').split('#')[0].split('?')[0].split('/').pop().toLowerCase(); if (f === '' || f === 'home.html' || f === 'home') f = 'index.html'; return f; }
+function setActiveLink() { const currentPage = fileOf(window.location.pathname); navLinks.forEach(link => { if (link.classList.contains('btn')) return; link.classList.toggle('active', fileOf(link.getAttribute('href')) === currentPage); }); }
+window.addEventListener('DOMContentLoaded', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
+/* Filters */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const tiles = document.querySelectorAll('.gallery-tile');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    tiles.forEach(t => {
+      if (filter === 'all' || t.dataset.cat === filter) t.classList.remove('hide');
+      else t.classList.add('hide');
+    });
+  });
+});
+
+/* Lightbox */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCat = document.getElementById('lightboxCat');
+const lightboxTitle = document.getElementById('lightboxTitle');
+let currentIndex = 0;
+const tileArray = Array.from(tiles);
+
+function openLightbox(index){
+  currentIndex = index;
+  const tile = tileArray[currentIndex];
+  const img = tile.querySelector('img');
+  const cat = tile.querySelector('.gallery-tile-cat');
+  const title = tile.querySelector('h4');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightboxCat.textContent = cat ? cat.textContent : '';
+  lightboxTitle.textContent = title ? title.textContent : '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){ lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+function showNext(){
+  const visible = tileArray.filter(t => !t.classList.contains('hide'));
+  if (!visible.length) return;
+  let i = visible.indexOf(tileArray[currentIndex]);
+  i = (i + 1) % visible.length;
+  openLightbox(tileArray.indexOf(visible[i]));
+}
+function showPrev(){
+  const visible = tileArray.filter(t => !t.classList.contains('hide'));
+  if (!visible.length) return;
+  let i = visible.indexOf(tileArray[currentIndex]);
+  i = (i - 1 + visible.length) % visible.length;
+  openLightbox(tileArray.indexOf(visible[i]));
+}
+tiles.forEach((tile, i) => tile.addEventListener('click', () => openLightbox(i)));
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightboxNext').addEventListener('click', showNext);
+document.getElementById('lightboxPrev').addEventListener('click', showPrev);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') showNext();
+  if (e.key === 'ArrowLeft') showPrev();
+});
+</script>
+</body>
+</html>

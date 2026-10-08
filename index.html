@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea Dental Studio — Luxury Dental Care, Redefined</title>
+<meta name="description" content="Aurea Dental Studio is a boutique dental practice offering cosmetic, restorative and preventive dentistry in an atmosphere of quiet luxury.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<style>
+/* ============================================
+   AUREA DESIGN TOKENS (unchanged)
+=============================================== */
+:root{
+  --charcoal:#1A1A1A;
+  --espresso:#2C1810;
+  --ink:#0F0F0F;
+  --gold:#C9A961;
+  --gold-soft:#E3CE9A;
+  --rose:#E8B4A0;
+  --cream:#FAF6F0;
+  --ivory:#FDFBF7;
+  --stone:#8B8378;
+  --line:rgba(26,26,26,.12);
+
+  --font-display:'Playfair Display', serif;
+  --font-body:'Inter', sans-serif;
+
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --container:1280px;
+  --radius:4px;
+  --radius-lg:12px;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body{
+  font-family:var(--font-body); color:var(--ink); background:var(--ivory);
+  overflow-x:hidden; line-height:1.7; font-weight:400; font-size:15.5px;
+}
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 40px; }
+.wrap-narrow{ max-width:1080px; margin:0 auto; padding:0 40px; }
+
+h1,h2,h3,h4,h5{
+  font-family:var(--font-display); font-weight:500; line-height:1.15;
+  color:var(--charcoal); letter-spacing:-0.01em;
+}
+section{ position:relative; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+::selection{ background:var(--gold); color:var(--ivory); }
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:var(--cream); }
+::-webkit-scrollbar-thumb{ background:var(--gold); border-radius:8px; }
+
+/* ============================================
+   BUTTON
+=============================================== */
+.btn{
+  position:relative; display:inline-flex; align-items:center; gap:12px;
+  padding:18px 36px; font-family:var(--font-body); font-weight:500;
+  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--charcoal); background:transparent;
+  border:1px solid var(--charcoal); border-radius:var(--radius);
+  overflow:hidden; isolation:isolate; cursor:pointer;
+  transition:color .5s var(--ease), border-color .5s var(--ease);
+}
+.btn span{ position:relative; z-index:2; }
+.btn i{ position:relative; z-index:2; transition:transform .5s var(--ease); font-size:.7rem; }
+.btn::before{
+  content:''; position:absolute; inset:auto 0 0 0; height:0;
+  background:var(--charcoal); z-index:1;
+  transition:height .5s var(--ease-out);
+}
+.btn:hover{ color:var(--ivory); }
+.btn:hover::before{ height:100%; }
+.btn:hover i{ transform:translateX(4px); }
+.btn.gold{ border-color:var(--gold); color:var(--gold); }
+.btn.gold::before{ background:var(--gold); }
+.btn.gold:hover{ color:var(--charcoal); }
+.btn.ivory{ border-color:rgba(253,251,247,.4); color:var(--ivory); }
+.btn.ivory::before{ background:var(--ivory); }
+.btn.ivory:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.link-arrow{
+  display:inline-flex; align-items:center; gap:10px; font-size:.78rem;
+  letter-spacing:.2em; text-transform:uppercase; font-weight:500;
+  color:var(--charcoal); padding-bottom:4px; position:relative;
+  border-bottom:1px solid var(--line); transition:color .3s, border-color .3s;
+}
+.link-arrow i{ font-size:.7rem; transition:transform .4s var(--ease); }
+.link-arrow:hover{ color:var(--gold); border-color:var(--gold); }
+.link-arrow:hover i{ transform:translateX(6px); }
+
+/* ============================================
+   LOGO
+=============================================== */
+.logo{
+  display:flex; align-items:center; gap:12px; flex-shrink:0;
+  font-family:var(--font-display); font-size:1.35rem; font-weight:600;
+  letter-spacing:.02em; color:var(--charcoal);
+  transition:color .4s;
+}
+.logo-mark{
+  width:38px; height:38px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--gold); color:var(--gold);
+  font-family:var(--font-display); font-size:1.1rem; font-weight:600;
+  transition:all .4s var(--ease);
+}
+.logo:hover .logo-mark{ background:var(--gold); color:var(--ivory); }
+.logo em{ font-style:italic; color:var(--gold); font-weight:400; }
+header.scrolled .logo{ color:var(--charcoal); }
+
+/* ============================================
+   HEADER
+=============================================== */
+header{
+  position:fixed; inset:0 0 auto 0; z-index:1000;
+  padding:26px 0; transition:all .5s var(--ease);
+}
+header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:40px; }
+
+nav.main-nav ul{ display:flex; gap:8px; align-items:center; }
+nav.main-nav a{
+  color:var(--charcoal); font-size:.82rem; font-weight:500;
+  letter-spacing:.08em; text-transform:uppercase;
+  position:relative; padding:10px 16px;
+  transition:color .3s;
+}
+nav.main-nav a::after{
+  content:''; position:absolute; left:16px; bottom:6px; right:16px;
+  height:1px; background:var(--gold);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .5s var(--ease-out);
+}
+nav.main-nav a:hover{ color:var(--gold); }
+nav.main-nav a:hover::after{ transform:scaleX(1); }
+nav.main-nav a.active{ color:var(--gold); }
+nav.main-nav a.active::after{ transform:scaleX(1); }
+
+.header-right{ display:flex; align-items:center; gap:20px; }
+.icon-btn{
+  color:var(--charcoal); font-size:1rem; cursor:pointer;
+  width:40px; height:40px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .3s var(--ease);
+}
+.icon-btn:hover{ background:var(--gold); color:var(--ivory); }
+.header-right .btn{ padding:14px 26px; font-size:.72rem; letter-spacing:.18em; }
+.burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:10px; }
+.burger span{ width:24px; height:1.5px; background:var(--charcoal); transition:.3s; }
+
+header.scrolled{
+  background:var(--ivory); padding:16px 0;
+  box-shadow:0 4px 30px rgba(26,26,26,.06);
+  border-bottom:1px solid var(--line);
+}
+header.transparent .logo,
+header.transparent nav.main-nav a,
+header.transparent .icon-btn{ color:var(--ivory); }
+header.transparent .logo-mark{ border-color:var(--gold); color:var(--gold); }
+header.transparent nav.main-nav a::after{ background:var(--gold); }
+header.transparent .burger span{ background:var(--ivory); }
+header.transparent .header-right .btn{ border-color:rgba(253,251,247,.5); color:var(--ivory); }
+header.transparent .header-right .btn::before{ background:var(--ivory); }
+header.transparent .header-right .btn:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+/* ============================================
+   MOBILE NAV
+=============================================== */
+.mobile-nav{
+  position:fixed; inset:0; z-index:1500;
+  background:var(--charcoal);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:26px; transform:translateY(-100%);
+  transition:transform .6s var(--ease-out);
+  visibility:hidden;
+}
+.mobile-nav.open{ transform:translateY(0); visibility:visible; }
+.mobile-nav a{
+  color:var(--ivory); font-family:var(--font-display);
+  font-size:1.8rem; font-weight:400; letter-spacing:.02em;
+  transition:color .3s;
+}
+.mobile-nav a:hover, .mobile-nav a.active{ color:var(--gold); }
+.mobile-nav .btn{ font-family:var(--font-body); font-size:.75rem; margin-top:14px; }
+.mobile-close{
+  position:absolute; top:28px; right:32px;
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--ivory); font-size:1.3rem; cursor:pointer;
+  transition:all .3s;
+}
+.mobile-close:hover{ background:var(--gold); color:var(--charcoal); }
+
+/* ============================================
+   HERO — NEW LAYOUT
+   Full-bleed text overlay + bottom offset bar
+=============================================== */
+.hero{
+  position:relative; min-height:100vh;
+  display:flex; flex-direction:column;
+  background:var(--espresso);
+  overflow:hidden;
+  padding:200px 0 0;
+}
+.hero-bg{
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=2000&q=80');
+  background-size:cover; background-position:center right;
+  opacity:.45; filter:brightness(.7) contrast(1.05);
+}
+.hero-tint{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 25% 45%, rgba(201,169,97,.15), transparent 55%),
+    linear-gradient(105deg, rgba(15,15,15,.94) 0%, rgba(44,24,16,.75) 50%, rgba(15,15,15,.35) 100%);
+}
+.hero-diagonal{
+  position:absolute; top:-10%; right:-15%; bottom:-10%; width:52%;
+  background:linear-gradient(160deg, rgba(201,169,97,.1), transparent 60%);
+  transform:skewX(-8deg); pointer-events:none;
+}
+
+/* Vertical side label */
+.hero-side-label{
+  position:absolute; left:40px; top:50%; transform:translateY(-50%) rotate(-90deg);
+  transform-origin:left center;
+  font-size:.68rem; letter-spacing:.4em; text-transform:uppercase;
+  color:rgba(201,169,97,.7); font-weight:500;
+  white-space:nowrap; z-index:4;
+  animation:fadeIn 1.5s var(--ease-out) .8s both;
+}
+
+.hero-inner{ position:relative; z-index:3; flex:1; display:flex; align-items:center; }
+
+.hero-content{ max-width:780px; }
+
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:16px;
+  font-size:.72rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gold-soft); font-weight:500; margin-bottom:32px;
+  animation:fadeUp 1s var(--ease-out) .1s both;
+}
+.hero-eyebrow::before{ content:''; width:44px; height:1px; background:var(--gold); }
+
+.hero-title{
+  font-size:clamp(2.8rem, 6.2vw, 5.4rem);
+  color:var(--ivory); line-height:1.02;
+  letter-spacing:-0.025em; font-weight:400;
+  margin-bottom:36px;
+  animation:fadeUp 1.1s var(--ease-out) .25s both;
+}
+.hero-title em{ font-style:italic; color:var(--gold); font-weight:500; }
+.hero-title strong{ font-weight:600; }
+
+.hero-text{
+  color:rgba(253,251,247,.72); font-size:1.08rem; line-height:1.8;
+  max-width:540px; margin-bottom:48px; font-weight:300;
+  animation:fadeUp 1.1s var(--ease-out) .4s both;
+}
+
+.hero-cta{
+  display:flex; gap:18px; flex-wrap:wrap;
+  animation:fadeUp 1.1s var(--ease-out) .55s both;
+}
+
+/* Bottom info bar — offset, sits over hero bottom */
+.hero-bottom-bar{
+  position:relative; z-index:4;
+  margin-top:80px;
+  border-top:1px solid rgba(201,169,97,.2);
+  animation:fadeUp 1.1s var(--ease-out) .75s both;
+}
+.hero-bottom-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:0;
+}
+.hero-info{
+  padding:32px 32px 36px;
+  border-right:1px solid rgba(201,169,97,.15);
+  transition:background .4s var(--ease);
+}
+.hero-info:last-child{ border-right:none; }
+.hero-info:hover{ background:rgba(201,169,97,.06); }
+.hero-info-num{
+  font-family:var(--font-display); font-size:1.9rem; font-style:italic;
+  color:var(--gold); font-weight:500; line-height:1;
+  display:block; margin-bottom:14px;
+}
+.hero-info-label{
+  font-size:.66rem; letter-spacing:.24em; text-transform:uppercase;
+  color:rgba(253,251,247,.5); font-weight:500;
+  display:block; margin-bottom:6px;
+}
+.hero-info-text{
+  color:var(--ivory); font-size:.94rem; font-weight:300;
+  font-family:var(--font-display);
+}
+
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(28px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+/* ============================================
+   TRUST STRIP — SPLIT LAYOUT
+=============================================== */
+.trust-strip{
+  background:var(--charcoal); overflow:hidden;
+  border-bottom:1px solid rgba(201,169,97,.15);
+  display:grid; grid-template-columns:auto 1fr; align-items:stretch;
+}
+.trust-label{
+  padding:32px 40px;
+  border-right:1px solid rgba(201,169,97,.2);
+  display:flex; flex-direction:column; justify-content:center;
+  background:var(--ink);
+}
+.trust-label span{
+  font-size:.62rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gold); font-weight:600;
+  display:block; margin-bottom:6px;
+}
+.trust-label strong{
+  font-family:var(--font-display); font-size:1rem; font-style:italic;
+  color:rgba(253,251,247,.75); font-weight:400;
+}
+.trust-marquee{
+  overflow:hidden; position:relative;
+  display:flex; align-items:center;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+}
+.trust-track{
+  display:flex; gap:64px; white-space:nowrap;
+  animation:marquee 40s linear infinite;
+  width:max-content; padding-left:64px;
+}
+.trust-track span{
+  font-family:var(--font-display); font-size:1.05rem; font-style:italic;
+  color:rgba(253,251,247,.55); display:inline-flex; align-items:center; gap:64px;
+}
+.trust-track span::after{
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--gold); display:inline-block;
+}
+@keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ============================================
+   SECTION HEAD
+=============================================== */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:14px;
+  font-size:.72rem; letter-spacing:.3em; text-transform:uppercase;
+  font-weight:600; color:var(--gold); margin-bottom:22px;
+}
+.eyebrow::before{ content:''; width:36px; height:1px; background:var(--gold); }
+.eyebrow.centered::after{ content:''; width:36px; height:1px; background:var(--gold); }
+
+.section-head{ max-width:720px; margin-bottom:70px; }
+.section-head h2{
+  font-size:clamp(2rem, 3.6vw, 3rem);
+  letter-spacing:-0.015em; font-weight:400; line-height:1.15;
+  color:var(--charcoal);
+}
+.section-head h2 em{ font-style:italic; color:var(--gold); }
+.section-head p{
+  color:var(--stone); margin-top:22px; font-size:1.02rem;
+  line-height:1.75; font-weight:300; max-width:620px;
+}
+.section-head.center{ margin-inline:auto; text-align:center; }
+.section-head.center .eyebrow{ justify-content:center; }
+.section-head.center p{ margin-inline:auto; }
+
+/* ============================================
+   PHILOSOPHY — NEW: Text left, stacked images right
+=============================================== */
+.philosophy{ padding:140px 0; background:var(--ivory); }
+.philosophy-grid{
+  display:grid; grid-template-columns:1.05fr 1fr;
+  gap:100px; align-items:center;
+}
+
+.philosophy-copy .eyebrow{ margin-bottom:26px; }
+.philosophy-copy h2{
+  font-size:clamp(1.9rem, 3.4vw, 3rem);
+  font-weight:400; line-height:1.18; margin-bottom:28px;
+}
+.philosophy-copy h2 em{ font-style:italic; color:var(--gold); }
+.philosophy-copy > p{
+  color:var(--stone); font-size:1.02rem; line-height:1.8;
+  margin-bottom:48px; font-weight:300;
+}
+
+.philosophy-points{ display:grid; gap:0; margin-bottom:48px; }
+.philosophy-point{
+  display:grid; grid-template-columns:64px 1fr; gap:24px;
+  padding:26px 0; border-bottom:1px solid var(--line);
+  transition:padding .4s var(--ease);
+}
+.philosophy-point:first-child{ border-top:1px solid var(--line); }
+.philosophy-point:hover{ padding-left:12px; }
+.philosophy-point-num{
+  font-family:var(--font-display); font-size:1.1rem; font-style:italic;
+  color:var(--gold); line-height:1.2;
+}
+.philosophy-point h4{
+  font-size:1.15rem; font-weight:500; margin-bottom:8px;
+  font-family:var(--font-display); letter-spacing:-0.01em;
+}
+.philosophy-point p{
+  color:var(--stone); font-size:.94rem; line-height:1.65; font-weight:300;
+}
+
+/* Stacked media — 2 images offset */
+.philosophy-media{
+  position:relative; height:680px;
+}
+.philosophy-media .img-main{
+  position:absolute; top:0; left:0;
+  width:78%; height:72%; object-fit:cover;
+  border-radius:var(--radius-lg);
+  box-shadow:0 40px 80px rgba(26,26,26,.14);
+  z-index:1;
+}
+.philosophy-media .img-small{
+  position:absolute; bottom:0; right:0;
+  width:60%; height:52%; object-fit:cover;
+  border-radius:var(--radius-lg);
+  border:8px solid var(--ivory);
+  box-shadow:0 30px 60px rgba(26,26,26,.18);
+  z-index:2;
+}
+.philosophy-media::before{
+  content:''; position:absolute;
+  left:-20px; top:20px; width:60px; height:60px;
+  border-top:1px solid var(--gold); border-left:1px solid var(--gold);
+  z-index:3;
+}
+.philosophy-media .badge{
+  position:absolute; top:60%; left:52%;
+  width:130px; height:130px; border-radius:50%;
+  background:var(--charcoal); color:var(--gold);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; font-family:var(--font-display);
+  box-shadow:0 24px 50px rgba(26,26,26,.25);
+  z-index:4;
+  animation:spin 22s linear infinite;
+}
+.philosophy-media .badge span:first-child{
+  font-size:2rem; font-weight:500; line-height:1; font-style:italic;
+}
+.philosophy-media .badge span:last-child{
+  font-size:.55rem; letter-spacing:.22em; text-transform:uppercase;
+  margin-top:6px; color:var(--gold-soft);
+  animation:counter-spin 22s linear infinite reverse;
+}
+.philosophy-media .badge span:first-child{
+  animation:counter-spin 22s linear infinite reverse;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@keyframes counter-spin{ to{ transform:rotate(-360deg); } }
+
+/* ============================================
+   SERVICES — NEW: Asymmetric feature + list
+=============================================== */
+.services{
+  padding:140px 0; background:var(--cream);
+  position:relative; overflow:hidden;
+}
+.services .wrap{ position:relative; z-index:2; }
+
+.services-layout{
+  display:grid; grid-template-columns:1fr 1.05fr;
+  gap:0; align-items:stretch;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+/* Feature side (left) — sticky visual */
+.services-feature{
+  padding:60px 60px 60px 0;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.services-feature-inner{
+  position:sticky; top:120px;
+}
+.services-feature .eyebrow{ margin-bottom:26px; }
+.services-feature h2{
+  font-size:clamp(1.9rem, 3vw, 2.6rem);
+  font-weight:400; line-height:1.18; margin-bottom:24px;
+}
+.services-feature h2 em{ font-style:italic; color:var(--gold); }
+.services-feature > p{
+  color:var(--stone); font-size:1rem; line-height:1.75;
+  margin-bottom:44px; font-weight:300;
+}
+.feature-img{
+  width:100%; height:340px; object-fit:cover;
+  border-radius:var(--radius-lg);
+  position:relative;
+}
+.feature-img-wrap{
+  position:relative; padding-bottom:20px;
+}
+.feature-img-wrap::after{
+  content:''; position:absolute;
+  right:-20px; bottom:-20px; width:120px; height:120px;
+  border-right:1px solid var(--gold); border-bottom:1px solid var(--gold);
+  pointer-events:none;
+}
+
+/* List side (right) */
+.services-list{ display:flex; flex-direction:column; }
+.service-row{
+  padding:36px 0 36px 40px;
+  border-bottom:1px solid var(--line);
+  position:relative; cursor:pointer;
+  transition:padding-left .5s var(--ease);
+}
+.service-row:last-child{ border-bottom:none; }
+.service-row::before{
+  content:''; position:absolute; left:0; top:50%;
+  width:0; height:1px; background:var(--gold);
+  transform:translateY(-50%);
+  transition:width .5s var(--ease-out);
+}
+.service-row:hover{ padding-left:70px; }
+.service-row:hover::before{ width:50px; }
+
+.service-row-head{
+  display:flex; align-items:flex-start; gap:24px;
+  margin-bottom:14px;
+}
+.service-row-num{
+  font-family:var(--font-display); font-size:.85rem; font-style:italic;
+  color:var(--gold); min-width:36px; padding-top:6px;
+  letter-spacing:.06em;
+}
+.service-row h3{
+  font-size:1.35rem; font-weight:500;
+  line-height:1.3; flex:1;
+  transition:color .3s;
+}
+.service-row:hover h3{ color:var(--gold); }
+.service-row p{
+  color:var(--stone); font-size:.94rem; line-height:1.7;
+  margin-left:60px; margin-bottom:18px; font-weight:300;
+}
+.service-row .service-link{
+  margin-left:60px;
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:500; color:var(--charcoal); display:inline-flex;
+  align-items:center; gap:8px;
+  transition:color .4s, gap .4s;
+}
+.service-row .service-link i{ font-size:.65rem; }
+.service-row:hover .service-link{ color:var(--gold); gap:12px; }
+
+/* ============================================
+   APPROACH — NEW: Vertical timeline alternating
+=============================================== */
+.approach{
+  padding:140px 0; background:var(--charcoal);
+  color:var(--ivory); position:relative; overflow:hidden;
+}
+.approach::before{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 85% 20%, rgba(201,169,97,.09), transparent 50%);
+}
+.approach .wrap{ position:relative; z-index:2; }
+.approach .section-head{ text-align:center; margin-inline:auto; margin-bottom:100px; }
+.approach .section-head .eyebrow{ justify-content:center; }
+.approach .section-head .eyebrow::before,
+.approach .section-head .eyebrow::after{ content:''; width:36px; height:1px; background:var(--gold); }
+.approach .section-head h2{ color:var(--ivory); }
+.approach .section-head p{ color:rgba(253,251,247,.6); margin-inline:auto; }
+
+.approach-timeline{
+  max-width:960px; margin:0 auto;
+  position:relative;
+}
+/* center line */
+.approach-timeline::before{
+  content:''; position:absolute; left:50%; top:0; bottom:0;
+  width:1px; background:rgba(201,169,97,.2);
+  transform:translateX(-50%);
+}
+.approach-row{
+  display:grid; grid-template-columns:1fr 88px 1fr;
+  align-items:center; gap:0;
+  margin-bottom:70px;
+}
+.approach-row:last-child{ margin-bottom:0; }
+
+.approach-row .step-num{
+  grid-column:2; justify-self:center;
+  width:88px; height:88px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:1.4rem; font-style:italic;
+  color:var(--gold); border:1px solid rgba(201,169,97,.35);
+  background:var(--charcoal); position:relative; z-index:2;
+  transition:all .5s var(--ease);
+}
+.approach-row:hover .step-num{
+  background:var(--gold); color:var(--charcoal); border-color:var(--gold);
+  transform:scale(1.06);
+}
+.approach-content{
+  padding:0 48px;
+}
+.approach-row.left .approach-content{ grid-column:1; text-align:right; }
+.approach-row.right .approach-content{ grid-column:3; }
+
+.approach-content h4{
+  color:var(--ivory); font-size:1.25rem; font-weight:500;
+  font-family:var(--font-display); margin-bottom:12px;
+}
+.approach-content p{
+  color:rgba(253,251,247,.55); font-size:.94rem;
+  line-height:1.7; font-weight:300;
+}
+
+/* ============================================
+   TESTIMONIAL — NEW: Asymmetric avatar left, quote right
+=============================================== */
+.testimonial{
+  padding:140px 0; background:var(--ivory);
+  position:relative; overflow:hidden;
+}
+.testimonial-layout{
+  display:grid; grid-template-columns:340px 1fr;
+  gap:80px; align-items:center;
+  max-width:1080px; margin:0 auto;
+}
+.testimonial-portrait{
+  position:relative; padding-bottom:24px; padding-right:24px;
+}
+.testimonial-portrait img{
+  width:100%; aspect-ratio:4/5; object-fit:cover;
+  border-radius:var(--radius-lg);
+  box-shadow:0 30px 60px rgba(26,26,26,.14);
+}
+.testimonial-portrait::after{
+  content:''; position:absolute;
+  right:0; bottom:0; width:140px; height:140px;
+  border-right:1px solid var(--gold); border-bottom:1px solid var(--gold);
+  pointer-events:none;
+}
+.testimonial-portrait::before{
+  content:'"'; position:absolute;
+  top:-30px; left:-20px;
+  font-family:var(--font-display); font-size:9rem;
+  line-height:.8; color:var(--gold); opacity:.2;
+  z-index:2;
+}
+
+.testimonial-body .eyebrow{ margin-bottom:26px; }
+.testimonial-stars{
+  display:flex; gap:6px; margin-bottom:26px;
+  color:var(--gold); font-size:.85rem;
+}
+.testimonial-quote{
+  font-family:var(--font-display); font-size:clamp(1.35rem, 2.2vw, 1.85rem);
+  line-height:1.45; color:var(--charcoal); font-weight:400;
+  letter-spacing:-0.005em; margin-bottom:36px; font-style:italic;
+}
+.testimonial-quote em{ color:var(--gold); }
+.testimonial-author{ }
+.testimonial-author h5{
+  font-family:var(--font-display); font-size:1.05rem; font-weight:500;
+  margin-bottom:6px;
+}
+.testimonial-author span{
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--stone);
+}
+
+/* ============================================
+   GALLERY — Horizontal scroll strip with peek
+=============================================== */
+.gallery-preview{
+  padding:140px 0 140px; background:var(--cream);
+  overflow:hidden;
+}
+.gallery-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:60px; gap:40px; flex-wrap:wrap;
+  padding:0 40px; max-width:var(--container); margin-inline:auto;
+}
+.gallery-scroll{
+  display:flex; gap:24px;
+  padding:0 40px 20px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  cursor:grab;
+  -webkit-mask-image:linear-gradient(90deg, #000 0, #000 92%, transparent 100%);
+  mask-image:linear-gradient(90deg, #000 0, #000 92%, transparent 100%);
+}
+.gallery-scroll::-webkit-scrollbar{ display:none; }
+.gallery-scroll.dragging{ cursor:grabbing; scroll-snap-type:none; }
+
+.gallery-card{
+  flex:0 0 440px; height:540px;
+  scroll-snap-align:start;
+  position:relative; overflow:hidden;
+  border-radius:var(--radius-lg);
+  cursor:pointer;
+}
+.gallery-card img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 1s var(--ease-out);
+  pointer-events:none;
+}
+.gallery-card:hover img{ transform:scale(1.06); }
+.gallery-card::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(15,15,15,.85) 0%, transparent 55%);
+  opacity:0; transition:opacity .5s var(--ease);
+}
+.gallery-card:hover::after{ opacity:1; }
+.gallery-card-overlay{
+  position:absolute; inset:auto 0 0 0; padding:36px;
+  z-index:2; opacity:0; transform:translateY(14px);
+  transition:all .5s var(--ease-out);
+}
+.gallery-card:hover .gallery-card-overlay{ opacity:1; transform:translateY(0); }
+.gallery-card-overlay span{
+  font-size:.65rem; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; display:block; margin-bottom:10px;
+}
+.gallery-card-overlay h4{
+  color:var(--ivory); font-size:1.35rem; font-weight:500;
+  font-family:var(--font-display); margin-bottom:8px;
+}
+.gallery-card-overlay p{
+  color:rgba(253,251,247,.7); font-size:.88rem; font-weight:300;
+}
+
+.gallery-cta{
+  text-align:center; margin-top:60px;
+  padding:0 40px; max-width:var(--container); margin-inline:auto;
+}
+
+/* ============================================
+   CTA — NEW: Split left text / right badge
+=============================================== */
+.cta-section{
+  padding:0; background:var(--espresso);
+  position:relative; overflow:hidden;
+}
+.cta-section::before{
+  content:''; position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80');
+  background-size:cover; background-position:center;
+  opacity:.18;
+}
+.cta-section::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(105deg, rgba(15,15,15,.92) 0%, rgba(44,24,16,.75) 50%, rgba(15,15,15,.55) 100%);
+}
+.cta-layout{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.4fr 1fr;
+  gap:80px; align-items:center;
+  padding:110px 0;
+}
+.cta-content .eyebrow{ margin-bottom:26px; }
+.cta-content h2{
+  color:var(--ivory); font-size:clamp(2rem, 3.8vw, 3.2rem);
+  font-weight:400; line-height:1.15; margin-bottom:26px;
+  letter-spacing:-0.02em;
+}
+.cta-content h2 em{ font-style:italic; color:var(--gold); }
+.cta-content p{
+  color:rgba(253,251,247,.65); font-size:1rem;
+  line-height:1.75; margin-bottom:44px; font-weight:300;
+  max-width:520px;
+}
+.cta-content .btn-row{
+  display:flex; gap:16px; flex-wrap:wrap;
+}
+
+/* Circular "open" badge */
+.cta-badge{
+  position:relative; width:280px; height:280px;
+  justify-self:end;
+  display:flex; align-items:center; justify-content:center;
+}
+.cta-badge-ring{
+  position:absolute; inset:0; border-radius:50%;
+  border:1px solid rgba(201,169,97,.3);
+  animation:spin 30s linear infinite;
+}
+.cta-badge-ring::before{
+  content:''; position:absolute; top:-6px; left:50%;
+  width:12px; height:12px; border-radius:50%;
+  background:var(--gold); transform:translateX(-50%);
+}
+.cta-badge-inner{
+  width:200px; height:200px; border-radius:50%;
+  background:var(--gold); color:var(--charcoal);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:20px;
+  transition:transform .5s var(--ease);
+  cursor:pointer;
+}
+.cta-badge-inner:hover{ transform:scale(1.05); }
+.cta-badge-inner span:first-child{
+  font-family:var(--font-display); font-size:2.2rem; font-style:italic;
+  font-weight:500; line-height:1; margin-bottom:8px;
+}
+.cta-badge-inner span:last-child{
+  font-size:.66rem; letter-spacing:.24em; text-transform:uppercase;
+  font-weight:700;
+}
+
+/* ============================================
+   FOOTER
+=============================================== */
+footer{
+  background:var(--ink); color:rgba(253,251,247,.6);
+  padding:100px 0 0;
+}
+.footer-top{
+  display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr;
+  gap:60px; padding-bottom:70px;
+  border-bottom:1px solid rgba(201,169,97,.12);
+}
+.footer-brand .logo{ color:var(--ivory); margin-bottom:22px; }
+.footer-brand p{
+  font-size:.92rem; line-height:1.75; font-weight:300;
+  max-width:320px;
+}
+.footer-col h5{
+  color:var(--ivory); font-family:var(--font-body);
+  font-size:.72rem; font-weight:600; letter-spacing:.22em;
+  text-transform:uppercase; margin-bottom:26px;
+}
+.footer-col ul li{ margin-bottom:14px; }
+.footer-col ul a{
+  font-size:.92rem; font-weight:300;
+  transition:color .3s, padding-left .3s;
+}
+.footer-col ul a:hover{ color:var(--gold); padding-left:6px; }
+.footer-newsletter p{
+  font-size:.92rem; margin-bottom:20px; font-weight:300; line-height:1.7;
+}
+.footer-newsletter form{
+  display:flex; align-items:center;
+  border-bottom:1px solid rgba(201,169,97,.3);
+  padding-bottom:12px;
+}
+.footer-newsletter input{
+  flex:1; background:none; border:none; color:var(--ivory);
+  font-family:var(--font-body); font-size:.9rem;
+  outline:none; padding:8px 0;
+}
+.footer-newsletter input::placeholder{ color:rgba(253,251,247,.35); }
+.footer-newsletter button{
+  color:var(--gold); font-size:1rem;
+  transition:transform .3s var(--ease);
+}
+.footer-newsletter button:hover{ transform:translateX(4px); }
+.footer-socials{ display:flex; gap:10px; margin-top:28px; }
+.footer-socials a{
+  width:40px; height:40px; border-radius:50%;
+  border:1px solid rgba(201,169,97,.25);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--ivory); font-size:.85rem;
+  transition:all .35s var(--ease);
+}
+.footer-socials a:hover{
+  background:var(--gold); border-color:var(--gold);
+  color:var(--charcoal); transform:translateY(-3px);
+}
+.footer-bottom{
+  display:flex; justify-content:space-between;
+  align-items:center; padding:32px 0;
+  font-size:.8rem; flex-wrap:wrap; gap:14px;
+  color:rgba(253,251,247,.4);
+}
+.footer-bottom a{ color:var(--gold); transition:color .3s; }
+.footer-bottom a:hover{ color:var(--gold-soft); }
+
+/* ============================================
+   SCROLL TOP
+=============================================== */
+.scroll-top{
+  position:fixed; right:32px; bottom:32px;
+  width:52px; height:52px; border-radius:50%;
+  background:var(--charcoal); color:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; opacity:0; visibility:hidden;
+  transform:translateY(15px);
+  transition:all .4s var(--ease);
+  z-index:900; font-size:.9rem;
+  border:1px solid rgba(201,169,97,.3);
+}
+.scroll-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.scroll-top:hover{ background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
+
+/* ============================================
+   RESPONSIVE
+=============================================== */
+@media(max-width:1100px){
+  .hero-bottom-grid{ grid-template-columns:repeat(2, 1fr); }
+  .hero-info:nth-child(2){ border-right:none; }
+  .hero-info:nth-child(1),.hero-info:nth-child(2){ border-bottom:1px solid rgba(201,169,97,.15); }
+
+  .philosophy-grid{ grid-template-columns:1fr; gap:80px; }
+  .philosophy-media{ height:520px; }
+
+  .services-layout{ grid-template-columns:1fr; }
+  .services-feature{ border-right:none; border-bottom:1px solid var(--line); padding:0 0 60px; }
+  .services-feature-inner{ position:static; }
+
+  .testimonial-layout{ grid-template-columns:280px 1fr; gap:60px; }
+
+  .cta-layout{ grid-template-columns:1fr; gap:60px; }
+  .cta-badge{ justify-self:start; width:220px; height:220px; }
+  .cta-badge-inner{ width:160px; height:160px; }
+  .cta-badge-inner span:first-child{ font-size:1.8rem; }
+
+  .gallery-card{ flex:0 0 380px; height:480px; }
+  .footer-top{ grid-template-columns:1fr 1fr; row-gap:50px; }
+}
+
+@media(max-width:900px){
+  nav.main-nav, .header-right .btn{ display:none; }
+  .burger{ display:flex; }
+  .header-right{ gap:12px; }
+  .hero-side-label{ display:none; }
+}
+
+@media(max-width:768px){
+  .wrap,.wrap-narrow{ padding:0 24px; }
+  section, .philosophy, .services, .approach, .testimonial,
+  .gallery-preview{ padding:90px 0; }
+
+  .hero{ padding:150px 0 0; min-height:auto; }
+  .hero-title{ font-size:2.4rem; }
+  .hero-bottom-grid{ grid-template-columns:1fr; }
+  .hero-info{ border-right:none; padding:24px 0; border-bottom:1px solid rgba(201,169,97,.15); }
+  .hero-info:last-child{ border-bottom:none; }
+  .hero-info-num{ font-size:1.5rem; margin-bottom:8px; }
+
+  .trust-strip{ grid-template-columns:1fr; }
+  .trust-label{ border-right:none; border-bottom:1px solid rgba(201,169,97,.2); padding:22px 24px; }
+
+  .philosophy-media{ height:420px; }
+  .philosophy-media .img-main{ width:85%; height:70%; }
+  .philosophy-media .img-small{ width:65%; height:50%; }
+  .philosophy-media .badge{ width:100px; height:100px; top:65%; left:55%; }
+  .philosophy-media .badge span:first-child{ font-size:1.5rem; }
+
+  .services-feature{ padding:0 0 50px; }
+  .service-row{ padding:28px 0 28px 24px; }
+  .service-row:hover{ padding-left:38px; }
+  .service-row p,
+  .service-row .service-link{ margin-left:0; }
+
+  .approach{ padding:90px 0; }
+  .approach .section-head{ margin-bottom:60px; }
+  .approach-timeline::before{ left:22px; }
+  .approach-row{ grid-template-columns:44px 1fr; gap:24px; margin-bottom:50px; }
+  .approach-row .step-num{
+    grid-column:1; width:44px; height:44px; font-size:.9rem; justify-self:start;
+  }
+  .approach-row.left .approach-content,
+  .approach-row.right .approach-content{
+    grid-column:2; text-align:left; padding:0;
+  }
+
+  .testimonial-layout{ grid-template-columns:1fr; gap:50px; }
+  .testimonial-portrait{ max-width:280px; }
+
+  .gallery-head{ padding:0 24px; margin-bottom:40px; }
+  .gallery-scroll{ padding:0 24px 20px; gap:16px; }
+  .gallery-card{ flex:0 0 300px; height:400px; }
+  .gallery-cta{ margin-top:40px; padding:0 24px; }
+
+  .cta-layout{ padding:80px 0; }
+  .cta-badge{ display:none; }
+
+  .footer-top{ grid-template-columns:1fr; gap:50px; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+
+@media(max-width:520px){
+  .wrap,.wrap-narrow{ padding:0 20px; }
+  .hero-title{ font-size:2rem; }
+  .hero-cta .btn{ padding:15px 24px; font-size:.7rem; letter-spacing:.18em; }
+  .philosophy-media{ height:340px; }
+  .approach-row{ gap:18px; }
+  .gallery-card{ flex:0 0 260px; height:360px; }
+  .cta-content .btn{ width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="siteHeader" class="transparent">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">A</span>
+      <span>Aurea<em>.</em></span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <span class="icon-btn"><i class="fa-solid fa-phone"></i></span>
+      <a href="contact.html" class="btn"><span>Book Consultation</span></a>
+      <div class="burger" id="burgerBtn" role="button" aria-label="Open menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></div>
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn ivory" style="margin-top:20px;"><span>Book Consultation</span></a>
+</div>
+
+<!-- ============================================
+     HERO — FULL BLEED WITH BOTTOM INFO BAR
+=============================================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tint"></div>
+  <div class="hero-diagonal"></div>
+
+  <div class="hero-side-label">Est. 2012 · Boutique Studio</div>
+
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="hero-content">
+        <div class="hero-eyebrow">A quiet, considered dental studio</div>
+        <h1 class="hero-title">
+          The art of a<br>
+          <em>quietly confident</em><br>
+          <strong>smile.</strong>
+        </h1>
+        <p class="hero-text">
+          Aurea is a private dental studio where clinical precision meets the calm of
+          a luxury atelier. Fewer patients each day. Longer appointments. Dentistry
+          as it should be.
+        </p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn ivory"><span>Book Consultation</span></a>
+          <a href="services.html" class="btn" style="border-color:rgba(253,251,247,.25);color:rgba(253,251,247,.85);">
+            <span>Explore Services</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom info bar -->
+  <div class="hero-bottom-bar">
+    <div class="wrap">
+      <div class="hero-bottom-grid">
+        <div class="hero-info">
+          <span class="hero-info-num">12+</span>
+          <span class="hero-info-label">Years Practice</span>
+          <span class="hero-info-text">A single studio, deliberately small.</span>
+        </div>
+        <div class="hero-info">
+          <span class="hero-info-num">3.2k</span>
+          <span class="hero-info-label">Smiles Crafted</span>
+          <span class="hero-info-text">Cosmetic &amp; restorative cases.</span>
+        </div>
+        <div class="hero-info">
+          <span class="hero-info-num">4.9</span>
+          <span class="hero-info-label">Patient Rating</span>
+          <span class="hero-info-text">Across 620+ verified reviews.</span>
+        </div>
+        <div class="hero-info">
+          <span class="hero-info-num">1:1</span>
+          <span class="hero-info-label">Care Model</span>
+          <span class="hero-info-text">One dentist, one patient, whole visit.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TRUST STRIP — Split: label + marquee
+=============================================== -->
+<div class="trust-strip">
+  <div class="trust-label">
+    <span>Signature Care</span>
+    <strong>What we do, quietly.</strong>
+  </div>
+  <div class="trust-marquee">
+    <div class="trust-track">
+      <span>Digital Smile Design</span>
+      <span>Ceramic Veneers</span>
+      <span>Invisible Aligners</span>
+      <span>Implantology</span>
+      <span>Teeth Whitening</span>
+      <span>Full-Mouth Rehabilitation</span>
+      <span>Digital Smile Design</span>
+      <span>Ceramic Veneers</span>
+      <span>Invisible Aligners</span>
+      <span>Implantology</span>
+      <span>Teeth Whitening</span>
+      <span>Full-Mouth Rehabilitation</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     PHILOSOPHY — Text left, Stacked images right
+=============================================== -->
+<section class="philosophy">
+  <div class="wrap">
+    <div class="philosophy-grid">
+
+      <div class="philosophy-copy" data-aos="fade-right">
+        <div class="eyebrow">Our Philosophy</div>
+        <h2>We believe great dentistry <em>should feel</em> like being well looked after.</h2>
+        <p>
+          Aurea began as a single-chair practice with one simple idea — that dental care
+          could be as considered, unhurried and beautiful as the best private ateliers.
+          We take fewer appointments each day so every visit feels personal, never rushed.
+        </p>
+
+        <div class="philosophy-points">
+          <div class="philosophy-point" data-aos="fade-up">
+            <div class="philosophy-point-num">i.</div>
+            <div>
+              <h4>Unhurried appointments</h4>
+              <p>Longer sessions, fewer patients per day — because good work takes time.</p>
+            </div>
+          </div>
+          <div class="philosophy-point" data-aos="fade-up" data-aos-delay="100">
+            <div class="philosophy-point-num">ii.</div>
+            <div>
+              <h4>Digital, minimally invasive care</h4>
+              <p>Modern scanning, digital planning and gentle techniques wherever possible.</p>
+            </div>
+          </div>
+          <div class="philosophy-point" data-aos="fade-up" data-aos-delay="200">
+            <div class="philosophy-point-num">iii.</div>
+            <div>
+              <h4>Craft over volume</h4>
+              <p>Ceramic work, implantology and cosmetic dentistry in the hands of specialists.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html" class="link-arrow">
+          <span>Read Our Full Story</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="philosophy-media" data-aos="fade-left">
+        <img class="img-main" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1000&q=80" alt="Aurea Dental Studio interior">
+        <img class="img-small" src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=800&q=80" alt="Dental detail">
+        <div class="badge">
+          <span>12+</span>
+          <span>Years of Craft</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICES — Asymmetric feature + list
+=============================================== -->
+<section class="services">
+  <div class="wrap">
+    <div class="services-layout">
+
+      <!-- Left: Feature with sticky heading + image -->
+      <div class="services-feature" data-aos="fade-right">
+        <div class="services-feature-inner">
+          <div class="eyebrow">Services</div>
+          <h2>Considered dentistry, <em>quietly delivered</em>.</h2>
+          <p>
+            A complete offering across preventive, cosmetic and restorative care —
+            always planned with a long-term view.
+          </p>
+          <div class="feature-img-wrap">
+            <img class="feature-img" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Aurea studio">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Service list rows -->
+      <div class="services-list">
+
+        <div class="service-row" data-aos="fade-up">
+          <div class="service-row-head">
+            <span class="service-row-num">i.</span>
+            <h3>Preventive &amp; General Care</h3>
+          </div>
+          <p>Examinations, hygiene therapy and preventive treatments that keep small things from becoming large ones.</p>
+          <a href="services.html" class="service-link">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-row" data-aos="fade-up" data-aos-delay="60">
+          <div class="service-row-head">
+            <span class="service-row-num">ii.</span>
+            <h3>Cosmetic Dentistry</h3>
+          </div>
+          <p>Ceramic veneers, bonding and whitening — hand-finished to blend naturally with your face.</p>
+          <a href="services.html" class="service-link">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-row" data-aos="fade-up" data-aos-delay="120">
+          <div class="service-row-head">
+            <span class="service-row-num">iii.</span>
+            <h3>Dental Implants</h3>
+          </div>
+          <p>Single-tooth and full-arch implantology using guided digital surgery for precise, lasting results.</p>
+          <a href="services.html" class="service-link">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-row" data-aos="fade-up" data-aos-delay="180">
+          <div class="service-row-head">
+            <span class="service-row-num">iv.</span>
+            <h3>Clear Aligners</h3>
+          </div>
+          <p>Invisible orthodontics planned and monitored digitally — for adults who prefer a discreet path.</p>
+          <a href="services.html" class="service-link">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-row" data-aos="fade-up" data-aos-delay="240">
+          <div class="service-row-head">
+            <span class="service-row-num">v.</span>
+            <h3>Restorative Dentistry</h3>
+          </div>
+          <p>Crowns, onlays and full-mouth rehabilitation designed to restore function and beauty together.</p>
+          <a href="services.html" class="service-link">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-row" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-row-head">
+            <span class="service-row-num">vi.</span>
+            <h3>Smile Design</h3>
+          </div>
+          <p>Our signature offering — a complete, digitally-previewed plan for a smile made to fit you.</p>
+          <a href="services.html" class="service-link">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     APPROACH — Vertical alternating timeline
+=============================================== -->
+<section class="approach">
+  <div class="wrap">
+    <div class="section-head" data-aos="fade-up">
+      <div class="eyebrow">The Aurea Approach</div>
+      <h2>Four quiet steps, <em>carefully taken</em>.</h2>
+      <p>Every treatment at Aurea follows the same considered path, whatever the scope.</p>
+    </div>
+
+    <div class="approach-timeline">
+
+      <div class="approach-row left" data-aos="fade-right">
+        <div class="approach-content">
+          <h4>Consultation</h4>
+          <p>A long, unhurried conversation. We listen first, examine carefully, and explain clearly — no rushing, no pressure.</p>
+        </div>
+        <div class="step-num">01</div>
+      </div>
+
+      <div class="approach-row right" data-aos="fade-left">
+        <div class="step-num">02</div>
+        <div class="approach-content">
+          <h4>Digital Planning</h4>
+          <p>Scans, photographs and digital previews so you can see the outcome before we begin — full clarity, no surprises.</p>
+        </div>
+      </div>
+
+      <div class="approach-row left" data-aos="fade-right">
+        <div class="approach-content">
+          <h4>Treatment</h4>
+          <p>Carried out across comfortable, unrushed sessions — always at the pace your mouth allows, never against the clock.</p>
+        </div>
+        <div class="step-num">03</div>
+      </div>
+
+      <div class="approach-row right" data-aos="fade-left">
+        <div class="step-num">04</div>
+        <div class="approach-content">
+          <h4>Aftercare</h4>
+          <p>Long-term maintenance, hygiene reviews and a team you can reach whenever you need — long after the chair.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TESTIMONIAL — Asymmetric avatar left, quote right
+=============================================== -->
+<section class="testimonial">
+  <div class="wrap">
+    <div class="testimonial-layout" data-aos="fade-up">
+
+      <div class="testimonial-portrait">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" alt="Patient portrait">
+      </div>
+
+      <div class="testimonial-body">
+        <div class="eyebrow">Patient Words</div>
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-quote">
+          "I have never felt so genuinely <em>looked after</em> in a clinic. Every visit
+          felt like a conversation, not a transaction — and the result is a smile
+          that finally feels like mine, only better."
+        </p>
+        <div class="testimonial-author">
+          <h5>Maya Raghunathan</h5>
+          <span>Cosmetic Patient · 2024</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     GALLERY — Horizontal scroll strip with peek
+=============================================== -->
+<section class="gallery-preview">
+  <div class="gallery-head" data-aos="fade-up">
+    <div class="section-head" style="margin-bottom:0;">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Recent transformations from <em>the studio</em>.</h2>
+    </div>
+    <a href="gallery.html" class="link-arrow">
+      <span>View Full Gallery</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="gallery-scroll" id="galleryScroll">
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=1000&q=80" alt="Smile design case" draggable="false">
+      <div class="gallery-card-overlay">
+        <span>Smile Design</span>
+        <h4>Full ceramic veneers, upper arch</h4>
+        <p>Six-visit case · Hand-finished porcelain</p>
+      </div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80" alt="Implant case" draggable="false">
+      <div class="gallery-card-overlay">
+        <span>Implantology</span>
+        <h4>Single anterior implant</h4>
+        <p>Guided digital placement · Ceramic crown</p>
+      </div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?auto=format&fit=crop&w=900&q=80" alt="Whitening case" draggable="false">
+      <div class="gallery-card-overlay">
+        <span>Whitening</span>
+        <h4>Enamel-safe in-office whitening</h4>
+        <p>Six shades in a single visit</p>
+      </div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1643660527071-52e37cf7c7ea?auto=format&fit=crop&w=900&q=80" alt="Orthodontics case" draggable="false">
+      <div class="gallery-card-overlay">
+        <span>Clear Aligners</span>
+        <h4>Adult clear aligner case</h4>
+        <p>Fourteen months · Discreet treatment</p>
+      </div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?auto=format&fit=crop&w=1000&q=80" alt="Makeover case" draggable="false">
+      <div class="gallery-card-overlay">
+        <span>Full Makeover</span>
+        <h4>Cosmetic + restorative rebuild</h4>
+        <p>Veneers, bonding and whitening</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-cta">
+    <a href="gallery.html" class="btn"><span>View All Transformations</span></a>
+  </div>
+</section>
+
+<!-- ============================================
+     CTA — Split: text left, badge right
+=============================================== -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-layout">
+
+      <div class="cta-content" data-aos="fade-right">
+        <div class="eyebrow">Begin</div>
+        <h2>Let's design the smile <em>you've been imagining</em>.</h2>
+        <p>
+          Book a consultation at Aurea — a long, unhurried conversation about
+          what you want, and what's possible.
+        </p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn ivory"><span>Book Consultation</span></a>
+          <a href="gallery.html" class="btn" style="border-color:rgba(253,251,247,.25);color:rgba(253,251,247,.85);">
+            <span>See the Work</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="cta-badge" data-aos="zoom-in">
+        <div class="cta-badge-ring"></div>
+        <a href="contact.html" class="cta-badge-inner">
+          <span>Book</span>
+          <span>Consultation</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+=============================================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">A</span>
+          <span>Aurea<em>.</em></span>
+        </a>
+        <p>A boutique dental studio in the heart of the city — offering considered, private care for adults who value calm and craft.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Cosmetic Dentistry</a></li>
+          <li><a href="services.html">Dental Implants</a></li>
+          <li><a href="services.html">Clear Aligners</a></li>
+          <li><a href="services.html">Smile Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h5 style="color:var(--ivory);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:26px;">Newsletter</h5>
+        <p>Occasional notes on dentistry, design and studio news. No noise.</p>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you — you are subscribed.');">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Aurea Dental Studio. All rights reserved.</span>
+      <span>Site by <a href="#">Aurea</a> · Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" role="button" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ duration: 900, once: true, offset: 60, easing: 'ease-out-cubic' });
+
+/* ---------- Header scroll state ---------- */
+const header = document.getElementById('siteHeader');
+const scrollTopBtn = document.getElementById('scrollTop');
+const heroSection = document.querySelector('.hero');
+
+function updateHeader(){
+  const y = window.scrollY;
+  const heroH = heroSection ? heroSection.offsetHeight : 0;
+  if (y < heroH - 100) {
+    header.classList.add('transparent');
+    header.classList.remove('scrolled');
+  } else {
+    header.classList.remove('transparent');
+    header.classList.add('scrolled');
+  }
+  scrollTopBtn.classList.toggle('show', y > 600);
+}
+window.addEventListener('scroll', updateHeader);
+window.addEventListener('load', updateHeader);
+updateHeader();
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ---------- Mobile nav ---------- */
+const burger = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+burger.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') mobileNav.classList.remove('open'); });
+
+/* ---------- Active nav ---------- */
+const navLinks = document.querySelectorAll('nav.main-nav a, .mobile-nav a');
+function fileOf(url) {
+  let f = (url || '').split('#')[0].split('?')[0].split('/').pop().toLowerCase();
+  if (f === '' || f === 'home.html' || f === 'home') f = 'index.html';
+  return f;
+}
+function setActiveLink() {
+  const currentPage = fileOf(window.location.pathname);
+  navLinks.forEach(link => {
+    if (link.classList.contains('btn')) return;
+    link.classList.toggle('active', fileOf(link.getAttribute('href')) === currentPage);
+  });
+}
+window.addEventListener('DOMContentLoaded', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
+/* ---------- Hero subtle parallax ---------- */
+const heroBg = document.querySelector('.hero-bg');
+window.addEventListener('scroll', () => {
+  if (!heroBg) return;
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    heroBg.style.transform = `translateY(${y * 0.2}px) scale(1.05)`;
+  }
+});
+
+/* ---------- Gallery drag-scroll ---------- */
+(function initGalleryDrag(){
+  const scroller = document.getElementById('galleryScroll');
+  if (!scroller) return;
+  let isDown = false, startX, scrollLeft, moved = false;
+
+  scroller.addEventListener('mousedown', (e) => {
+    isDown = true; moved = false;
+    scroller.classList.add('dragging');
+    startX = e.pageX - scroller.offsetLeft;
+    scrollLeft = scroller.scrollLeft;
+  });
+  scroller.addEventListener('mouseleave', () => { isDown = false; scroller.classList.remove('dragging'); });
+  scroller.addEventListener('mouseup', () => { isDown = false; scroller.classList.remove('dragging'); });
+  scroller.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scroller.offsetLeft;
+    const walk = (x - startX) * 1.6;
+    if (Math.abs(walk) > 4) moved = true;
+    scroller.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch support
+  let touchStartX, touchScrollLeft;
+  scroller.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].pageX;
+    touchScrollLeft = scroller.scrollLeft;
+  }, { passive: true });
+  scroller.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX;
+    const walk = (touchStartX - x) * 1.2;
+    scroller.scrollLeft = touchScrollLeft + walk;
+  }, { passive: true });
+
+  // Prevent card click when dragging
+  scroller.querySelectorAll('.gallery-card').forEach(card => {
+    card.addEventListener('click', (e) => { if (moved) e.preventDefault(); });
+  });
+})();
+</script>
+</body>
+</html>

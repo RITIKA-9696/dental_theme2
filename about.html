@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Aurea Dental Studio</title>
+<meta name="description" content="The story behind Aurea Dental Studio — our philosophy, our team, and the quiet craft behind every smile we design.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<style>
+/* ===== TOKENS ===== */
+:root{
+  --charcoal:#1A1A1A; --espresso:#2C1810; --ink:#0F0F0F;
+  --gold:#C9A961; --gold-soft:#E3CE9A; --rose:#E8B4A0;
+  --cream:#FAF6F0; --ivory:#FDFBF7; --stone:#8B8378;
+  --line:rgba(26,26,26,.12);
+  --font-display:'Playfair Display', serif;
+  --font-body:'Inter', sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --container:1280px; --radius:4px; --radius-lg:12px;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body{ font-family:var(--font-body); color:var(--ink); background:var(--ivory); overflow-x:hidden; line-height:1.7; font-size:15.5px; }
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 40px; }
+h1,h2,h3,h4,h5{ font-family:var(--font-display); font-weight:500; line-height:1.15; color:var(--charcoal); letter-spacing:-0.01em; }
+section{ position:relative; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } }
+::selection{ background:var(--gold); color:var(--ivory); }
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:var(--cream); }
+::-webkit-scrollbar-thumb{ background:var(--gold); border-radius:8px; }
+
+.btn{
+  position:relative; display:inline-flex; align-items:center; gap:12px;
+  padding:18px 36px; font-family:var(--font-body); font-weight:500;
+  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--charcoal); background:transparent;
+  border:1px solid var(--charcoal); border-radius:var(--radius);
+  overflow:hidden; isolation:isolate; cursor:pointer;
+  transition:color .5s var(--ease), border-color .5s var(--ease);
+}
+.btn span{ position:relative; z-index:2; }
+.btn i{ position:relative; z-index:2; transition:transform .5s var(--ease); font-size:.7rem; }
+.btn::before{ content:''; position:absolute; inset:auto 0 0 0; height:0; background:var(--charcoal); z-index:1; transition:height .5s var(--ease-out); }
+.btn:hover{ color:var(--ivory); }
+.btn:hover::before{ height:100%; }
+.btn:hover i{ transform:translateX(4px); }
+.btn.gold{ border-color:var(--gold); color:var(--gold); }
+.btn.gold::before{ background:var(--gold); }
+.btn.gold:hover{ color:var(--charcoal); }
+.btn.ivory{ border-color:rgba(253,251,247,.4); color:var(--ivory); }
+.btn.ivory::before{ background:var(--ivory); }
+.btn.ivory:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.link-arrow{
+  display:inline-flex; align-items:center; gap:10px; font-size:.78rem;
+  letter-spacing:.2em; text-transform:uppercase; font-weight:500;
+  color:var(--charcoal); padding-bottom:4px;
+  border-bottom:1px solid var(--line); transition:color .3s, border-color .3s;
+}
+.link-arrow i{ font-size:.7rem; transition:transform .4s var(--ease); }
+.link-arrow:hover{ color:var(--gold); border-color:var(--gold); }
+.link-arrow:hover i{ transform:translateX(6px); }
+
+.logo{ display:flex; align-items:center; gap:12px; flex-shrink:0; font-family:var(--font-display); font-size:1.35rem; font-weight:600; color:var(--charcoal); transition:color .4s; }
+.logo-mark{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid var(--gold); color:var(--gold); font-family:var(--font-display); font-size:1.1rem; font-weight:600; transition:all .4s var(--ease); }
+.logo:hover .logo-mark{ background:var(--gold); color:var(--ivory); }
+.logo em{ font-style:italic; color:var(--gold); font-weight:400; }
+
+header{ position:fixed; inset:0 0 auto 0; z-index:1000; padding:26px 0; transition:all .5s var(--ease); }
+header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:40px; }
+nav.main-nav ul{ display:flex; gap:8px; align-items:center; }
+nav.main-nav a{ color:var(--charcoal); font-size:.82rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; position:relative; padding:10px 16px; transition:color .3s; }
+nav.main-nav a::after{ content:''; position:absolute; left:16px; bottom:6px; right:16px; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease-out); }
+nav.main-nav a:hover{ color:var(--gold); }
+nav.main-nav a:hover::after{ transform:scaleX(1); }
+nav.main-nav a.active{ color:var(--gold); }
+nav.main-nav a.active::after{ transform:scaleX(1); }
+.header-right{ display:flex; align-items:center; gap:20px; }
+.icon-btn{ color:var(--charcoal); font-size:1rem; cursor:pointer; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .3s var(--ease); }
+.icon-btn:hover{ background:var(--gold); color:var(--ivory); }
+.header-right .btn{ padding:14px 26px; font-size:.72rem; letter-spacing:.18em; }
+.burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:10px; }
+.burger span{ width:24px; height:1.5px; background:var(--charcoal); transition:.3s; }
+header.scrolled{ background:var(--ivory); padding:16px 0; box-shadow:0 4px 30px rgba(26,26,26,.06); border-bottom:1px solid var(--line); }
+header.transparent .logo, header.transparent nav.main-nav a, header.transparent .icon-btn{ color:var(--ivory); }
+header.transparent .logo-mark{ border-color:var(--gold); color:var(--gold); }
+header.transparent .burger span{ background:var(--ivory); }
+header.transparent .header-right .btn{ border-color:rgba(253,251,247,.5); color:var(--ivory); }
+header.transparent .header-right .btn::before{ background:var(--ivory); }
+header.transparent .header-right .btn:hover{ color:var(--charcoal); border-color:var(--ivory); }
+
+.mobile-nav{ position:fixed; inset:0; z-index:1500; background:var(--charcoal); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:26px; transform:translateY(-100%); transition:transform .6s var(--ease-out); visibility:hidden; }
+.mobile-nav.open{ transform:translateY(0); visibility:visible; }
+.mobile-nav a{ color:var(--ivory); font-family:var(--font-display); font-size:1.8rem; font-weight:400; transition:color .3s; }
+.mobile-nav a:hover, .mobile-nav a.active{ color:var(--gold); }
+.mobile-nav .btn{ font-family:var(--font-body); font-size:.75rem; margin-top:14px; }
+.mobile-close{ position:absolute; top:28px; right:32px; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ivory); font-size:1.3rem; cursor:pointer; transition:all .3s; }
+.mobile-close:hover{ background:var(--gold); color:var(--charcoal); }
+
+/* ===== PAGE BANNER ===== */
+.page-banner{
+  position:relative; min-height:70vh;
+  display:flex; align-items:center;
+  background:var(--espresso); overflow:hidden;
+  padding:180px 0 120px;
+}
+.page-banner-bg{
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=2000&q=80');
+  background-size:cover; background-position:center;
+  opacity:.35; filter:brightness(.65) contrast(1.05);
+}
+.page-banner-tint{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 70% 40%, rgba(201,169,97,.14), transparent 55%),
+    linear-gradient(105deg, rgba(15,15,15,.94) 0%, rgba(44,24,16,.75) 60%, rgba(15,15,15,.5) 100%);
+}
+.page-banner-content{ position:relative; z-index:2; max-width:780px; }
+.page-banner .eyebrow{ color:var(--gold-soft); }
+.page-banner .eyebrow::before{ background:var(--gold); }
+.page-banner h1{
+  color:var(--ivory); font-size:clamp(2.6rem, 5.4vw, 4.6rem);
+  font-weight:400; line-height:1.05; letter-spacing:-0.02em;
+  margin-bottom:24px;
+}
+.page-banner h1 em{ font-style:italic; color:var(--gold); }
+.page-banner p{
+  color:rgba(253,251,247,.7); font-size:1.08rem;
+  font-weight:300; max-width:520px; line-height:1.75;
+}
+
+/* ===== STORY ===== */
+.story{ padding:140px 0; background:var(--ivory); }
+.story-grid{ display:grid; grid-template-columns:1fr 1.1fr; gap:100px; align-items:center; }
+.story-media{ position:relative; height:640px; }
+.story-media .img-a{ position:absolute; top:0; left:0; width:78%; height:72%; object-fit:cover; border-radius:var(--radius-lg); box-shadow:0 40px 80px rgba(26,26,26,.14); }
+.story-media .img-b{ position:absolute; bottom:0; right:0; width:58%; height:50%; object-fit:cover; border-radius:var(--radius-lg); border:8px solid var(--ivory); box-shadow:0 30px 60px rgba(26,26,26,.18); }
+.story-media::before{ content:''; position:absolute; left:-20px; top:20px; width:60px; height:60px; border-top:1px solid var(--gold); border-left:1px solid var(--gold); }
+
+.story-copy .eyebrow{ margin-bottom:26px; }
+.story-copy h2{ font-size:clamp(1.9rem, 3.4vw, 2.9rem); font-weight:400; line-height:1.18; margin-bottom:32px; }
+.story-copy h2 em{ font-style:italic; color:var(--gold); }
+.story-copy p{ color:var(--stone); font-size:1.02rem; line-height:1.85; margin-bottom:22px; font-weight:300; }
+.story-copy p.lead{ font-size:1.1rem; color:var(--charcoal); font-family:var(--font-display); font-style:italic; }
+
+/* ===== VALUES ===== */
+.values{ padding:130px 0; background:var(--cream); }
+.values-head{ text-align:center; max-width:720px; margin:0 auto 80px; }
+.values-head .eyebrow{ justify-content:center; }
+.values-head .eyebrow::before, .values-head .eyebrow::after{ content:''; width:36px; height:1px; background:var(--gold); }
+.values-head h2{ font-size:clamp(2rem, 3.4vw, 2.9rem); font-weight:400; line-height:1.18; }
+.values-head h2 em{ font-style:italic; color:var(--gold); }
+
+.values-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:0; border-top:1px solid var(--line); }
+.value-card{ padding:60px 40px; border-bottom:1px solid var(--line); border-right:1px solid var(--line); position:relative; overflow:hidden; transition:background .5s var(--ease); }
+.value-card:nth-child(3n){ border-right:none; }
+.value-card::before{ content:''; position:absolute; left:0; top:0; width:0; height:100%; background:var(--charcoal); z-index:0; transition:width .6s var(--ease-out); }
+.value-card:hover::before{ width:100%; }
+.value-card > *{ position:relative; z-index:1; }
+.value-num{ font-family:var(--font-display); font-size:.9rem; font-style:italic; color:var(--gold); display:block; margin-bottom:28px; letter-spacing:.06em; }
+.value-card h4{ font-size:1.3rem; font-weight:500; margin-bottom:16px; transition:color .4s; }
+.value-card p{ color:var(--stone); font-size:.95rem; line-height:1.75; font-weight:300; transition:color .4s; }
+.value-card:hover h4{ color:var(--ivory); }
+.value-card:hover p{ color:rgba(253,251,247,.7); }
+
+/* ===== TEAM ===== */
+.team{ padding:140px 0; background:var(--ivory); }
+.team-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:70px; gap:40px; flex-wrap:wrap; }
+.team-head .section-head{ margin-bottom:0; max-width:600px; }
+.section-head h2{ font-size:clamp(2rem, 3.4vw, 2.9rem); font-weight:400; line-height:1.18; }
+.section-head h2 em{ font-style:italic; color:var(--gold); }
+.eyebrow{ display:inline-flex; align-items:center; gap:14px; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; font-weight:600; color:var(--gold); margin-bottom:22px; }
+.eyebrow::before{ content:''; width:36px; height:1px; background:var(--gold); }
+
+.team-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; }
+.team-member{ position:relative; }
+.team-photo{ position:relative; overflow:hidden; border-radius:var(--radius-lg); aspect-ratio:4/5; }
+.team-photo img{ width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease-out); }
+.team-member:hover .team-photo img{ transform:scale(1.06); }
+.team-photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(15,15,15,.7) 0%, transparent 50%); opacity:0; transition:opacity .5s var(--ease); }
+.team-member:hover .team-photo::after{ opacity:1; }
+.team-socials{ position:absolute; inset:auto 0 24px 0; display:flex; justify-content:center; gap:10px; z-index:2; opacity:0; transform:translateY(12px); transition:all .5s var(--ease-out); }
+.team-member:hover .team-socials{ opacity:1; transform:translateY(0); }
+.team-socials a{ width:36px; height:36px; border-radius:50%; background:rgba(253,251,247,.15); border:1px solid rgba(253,251,247,.3); color:var(--ivory); display:flex; align-items:center; justify-content:center; font-size:.8rem; transition:all .3s var(--ease); }
+.team-socials a:hover{ background:var(--gold); border-color:var(--gold); color:var(--charcoal); }
+.team-info{ padding-top:22px; }
+.team-info h4{ font-size:1.25rem; font-weight:500; margin-bottom:6px; }
+.team-info span{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+
+/* ===== QUOTE STRIP ===== */
+.quote-strip{ padding:120px 0; background:var(--charcoal); position:relative; overflow:hidden; }
+.quote-strip::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 50%, rgba(201,169,97,.08), transparent 60%); }
+.quote-strip .wrap{ position:relative; z-index:2; max-width:900px; margin:0 auto; text-align:center; padding:0 40px; }
+.quote-mark{ font-family:var(--font-display); font-size:8rem; line-height:.6; color:var(--gold); opacity:.3; display:block; margin-bottom:24px; }
+.quote-strip blockquote{ font-family:var(--font-display); font-size:clamp(1.5rem, 2.6vw, 2.1rem); font-weight:400; font-style:italic; color:var(--ivory); line-height:1.5; letter-spacing:-0.005em; margin-bottom:32px; }
+.quote-strip blockquote em{ color:var(--gold); }
+.quote-author{ font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:rgba(253,251,247,.5); font-weight:600; }
+
+/* ===== CTA ===== */
+.cta-section{ padding:0; background:var(--espresso); position:relative; overflow:hidden; }
+.cta-section::before{ content:''; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center; opacity:.18; }
+.cta-section::after{ content:''; position:absolute; inset:0; background:linear-gradient(105deg, rgba(15,15,15,.92) 0%, rgba(44,24,16,.75) 50%, rgba(15,15,15,.55) 100%); }
+.cta-layout{ position:relative; z-index:2; display:grid; grid-template-columns:1.4fr 1fr; gap:80px; align-items:center; padding:110px 0; }
+.cta-content .eyebrow{ margin-bottom:26px; }
+.cta-content h2{ color:var(--ivory); font-size:clamp(2rem, 3.8vw, 3.2rem); font-weight:400; line-height:1.15; margin-bottom:26px; letter-spacing:-0.02em; }
+.cta-content h2 em{ font-style:italic; color:var(--gold); }
+.cta-content p{ color:rgba(253,251,247,.65); font-size:1rem; line-height:1.75; margin-bottom:44px; font-weight:300; max-width:520px; }
+.cta-content .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+.cta-badge{ position:relative; width:280px; height:280px; justify-self:end; display:flex; align-items:center; justify-content:center; }
+.cta-badge-ring{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(201,169,97,.3); animation:spin 30s linear infinite; }
+.cta-badge-ring::before{ content:''; position:absolute; top:-6px; left:50%; width:12px; height:12px; border-radius:50%; background:var(--gold); transform:translateX(-50%); }
+.cta-badge-inner{ width:200px; height:200px; border-radius:50%; background:var(--gold); color:var(--charcoal); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; transition:transform .5s var(--ease); }
+.cta-badge-inner:hover{ transform:scale(1.05); }
+.cta-badge-inner span:first-child{ font-family:var(--font-display); font-size:2.2rem; font-style:italic; font-weight:500; line-height:1; margin-bottom:8px; }
+.cta-badge-inner span:last-child{ font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; font-weight:700; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+/* ===== FOOTER ===== */
+footer{ background:var(--ink); color:rgba(253,251,247,.6); padding:100px 0 0; }
+.footer-top{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:60px; padding-bottom:70px; border-bottom:1px solid rgba(201,169,97,.12); }
+.footer-brand .logo{ color:var(--ivory); margin-bottom:22px; }
+.footer-brand p{ font-size:.92rem; line-height:1.75; font-weight:300; max-width:320px; }
+.footer-col h5{ color:var(--ivory); font-family:var(--font-body); font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; margin-bottom:26px; }
+.footer-col ul li{ margin-bottom:14px; }
+.footer-col ul a{ font-size:.92rem; font-weight:300; transition:color .3s, padding-left .3s; }
+.footer-col ul a:hover{ color:var(--gold); padding-left:6px; }
+.footer-newsletter p{ font-size:.92rem; margin-bottom:20px; font-weight:300; line-height:1.7; }
+.footer-newsletter form{ display:flex; align-items:center; border-bottom:1px solid rgba(201,169,97,.3); padding-bottom:12px; }
+.footer-newsletter input{ flex:1; background:none; border:none; color:var(--ivory); font-family:var(--font-body); font-size:.9rem; outline:none; padding:8px 0; }
+.footer-newsletter input::placeholder{ color:rgba(253,251,247,.35); }
+.footer-newsletter button{ color:var(--gold); font-size:1rem; transition:transform .3s var(--ease); }
+.footer-newsletter button:hover{ transform:translateX(4px); }
+.footer-socials{ display:flex; gap:10px; margin-top:28px; }
+.footer-socials a{ width:40px; height:40px; border-radius:50%; border:1px solid rgba(201,169,97,.25); display:flex; align-items:center; justify-content:center; color:var(--ivory); font-size:.85rem; transition:all .35s var(--ease); }
+.footer-socials a:hover{ background:var(--gold); border-color:var(--gold); color:var(--charcoal); transform:translateY(-3px); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding:32px 0; font-size:.8rem; flex-wrap:wrap; gap:14px; color:rgba(253,251,247,.4); }
+.footer-bottom a{ color:var(--gold); }
+.footer-bottom a:hover{ color:var(--gold-soft); }
+
+.scroll-top{ position:fixed; right:32px; bottom:32px; width:52px; height:52px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; visibility:hidden; transform:translateY(15px); transition:all .4s var(--ease); z-index:900; font-size:.9rem; border:1px solid rgba(201,169,97,.3); }
+.scroll-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.scroll-top:hover{ background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
+
+@media(max-width:1100px){
+  .story-grid{ grid-template-columns:1fr; gap:80px; }
+  .story-media{ height:520px; }
+  .values-grid{ grid-template-columns:repeat(2, 1fr); }
+  .value-card:nth-child(3n){ border-right:1px solid var(--line); }
+  .value-card:nth-child(2n){ border-right:none; }
+  .team-grid{ grid-template-columns:1fr 1fr; }
+  .cta-layout{ grid-template-columns:1fr; gap:60px; }
+  .cta-badge{ justify-self:start; width:220px; height:220px; }
+  .cta-badge-inner{ width:160px; height:160px; }
+  .footer-top{ grid-template-columns:1fr 1fr; row-gap:50px; }
+}
+@media(max-width:900px){
+  nav.main-nav, .header-right .btn{ display:none; }
+  .burger{ display:flex; }
+}
+@media(max-width:768px){
+  .wrap{ padding:0 24px; }
+  .story, .values, .team, .quote-strip{ padding:90px 0; }
+  .page-banner{ padding:150px 0 90px; min-height:auto; }
+  .story-media{ height:420px; }
+  .values-grid{ grid-template-columns:1fr; }
+  .value-card{ border-right:none !important; padding:44px 30px; }
+  .team-grid{ grid-template-columns:1fr; }
+  .cta-layout{ padding:80px 0; }
+  .cta-badge{ display:none; }
+  .footer-top{ grid-template-columns:1fr; gap:50px; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+@media(max-width:520px){
+  .wrap{ padding:0 20px; }
+  .story-media{ height:340px; }
+  .cta-content .btn{ width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<header id="siteHeader" class="transparent">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="logo-mark">A</span><span>Aurea<em>.</em></span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <span class="icon-btn"><i class="fa-solid fa-phone"></i></span>
+      <a href="contact.html" class="btn"><span>Book Consultation</span></a>
+      <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></div>
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn ivory" style="margin-top:20px;"><span>Book Consultation</span></a>
+</div>
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-tint"></div>
+  <div class="wrap page-banner-content">
+    <div class="eyebrow">Our Story</div>
+    <h1>The studio behind the <em>quiet craft</em>.</h1>
+    <p>Founded in 2012 by Dr. Amara Sokolova, Aurea has become a reference point for considered dentistry — a practice built on time, taste, and trust.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-media" data-aos="fade-right">
+        <img class="img-a" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1000&q=80" alt="Aurea studio">
+        <img class="img-b" src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=800&q=80" alt="Dental detail">
+      </div>
+      <div class="story-copy" data-aos="fade-left">
+        <div class="eyebrow">A Quiet Beginning</div>
+        <h2>It started with a single chair and a <em>simple conviction</em>.</h2>
+        <p class="lead">
+          "Dentistry, at its best, is a craft — not a conveyor belt."
+        </p>
+        <p>
+          Dr. Amara Sokolova opened Aurea in 2012 with just one dental chair, one
+          assistant, and a promise: never more than six patients a day. That single
+          decision shaped everything — the pace, the materials, the way we speak
+          to people, even the way the studio is lit.
+        </p>
+        <p>
+          Twelve years later, we are still small by choice. We work with a tight,
+          hand-picked team of specialists. We take on a limited number of cases each
+          year. And we still keep the same rule as day one — you are never rushed.
+        </p>
+        <p>
+          Our patients come for cosmetic work, restorative work, and preventive care,
+          but they stay for something harder to describe: the quiet confidence that
+          comes from being genuinely looked after.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap">
+    <div class="values-head" data-aos="fade-up">
+      <div class="eyebrow">Our Principles</div>
+      <h2>What we hold onto, <em>every single day</em>.</h2>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card" data-aos="fade-up">
+        <span class="value-num">i.</span>
+        <h4>Time is the treatment</h4>
+        <p>Longer sessions, fewer patients per day — good work simply cannot be rushed, so we don't try.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="value-num">ii.</span>
+        <h4>Materials we believe in</h4>
+        <p>Hand-finished ceramics, premium implants, and only what we would choose for ourselves.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="value-num">iii.</span>
+        <h4>Honesty, always</h4>
+        <p>If a treatment isn't right for you, we'll say so. If you don't need it, we'll tell you that too.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up">
+        <span class="value-num">iv.</span>
+        <h4>Quiet over loud</h4>
+        <p>No marketing noise, no unnecessary upselling — just work we're proud to sign our name to.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="value-num">v.</span>
+        <h4>One studio, one team</h4>
+        <p>Every case is handled by the same small team — from your first visit to your final review.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="value-num">vi.</span>
+        <h4>Care that lasts</h4>
+        <p>We plan treatments for the next fifteen years, not the next fifteen minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="wrap">
+    <div class="team-head">
+      <div class="section-head" data-aos="fade-up">
+        <div class="eyebrow">The Team</div>
+        <h2>The hands behind <em>every case</em>.</h2>
+      </div>
+      <a href="contact.html" class="link-arrow" data-aos="fade-up">
+        <span>Meet In Person</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-member" data-aos="fade-up">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dr. Amara Sokolova">
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>Dr. Amara Sokolova</h4>
+          <span>Founder · Cosmetic &amp; Restorative</span>
+        </div>
+      </div>
+      <div class="team-member" data-aos="fade-up" data-aos-delay="80">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80" alt="Dr. Julian Ostrowski">
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>Dr. Julian Ostrowski</h4>
+          <span>Implantology &amp; Surgery</span>
+        </div>
+      </div>
+      <div class="team-member" data-aos="fade-up" data-aos-delay="160">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80" alt="Dr. Elise Marchetti">
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>Dr. Elise Marchetti</h4>
+          <span>Orthodontics &amp; Aligners</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-strip">
+  <div class="wrap" data-aos="fade-up">
+    <span class="quote-mark">"</span>
+    <blockquote>
+      We don't aim to be the biggest studio in the city. We aim to be the one
+      people quietly recommend to their <em>closest friends</em>.
+    </blockquote>
+    <div class="quote-author">— Dr. Amara Sokolova, Founder</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-layout">
+      <div class="cta-content" data-aos="fade-right">
+        <div class="eyebrow">Visit Us</div>
+        <h2>Come see the studio <em>for yourself</em>.</h2>
+        <p>Book a consultation — a long, unhurried conversation about what you want, and what's possible.</p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn ivory"><span>Book Consultation</span></a>
+          <a href="services.html" class="btn" style="border-color:rgba(253,251,247,.25);color:rgba(253,251,247,.85);"><span>Explore Services</span></a>
+        </div>
+      </div>
+      <div class="cta-badge" data-aos="zoom-in">
+        <div class="cta-badge-ring"></div>
+        <a href="contact.html" class="cta-badge-inner"><span>Book</span><span>Consultation</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">A</span><span>Aurea<em>.</em></span></a>
+        <p>A boutique dental studio in the heart of the city — offering considered, private care for adults who value calm and craft.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Cosmetic Dentistry</a></li>
+          <li><a href="services.html">Dental Implants</a></li>
+          <li><a href="services.html">Clear Aligners</a></li>
+          <li><a href="services.html">Smile Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h5 style="color:var(--ivory);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:26px;">Newsletter</h5>
+        <p>Occasional notes on dentistry, design and studio news. No noise.</p>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you — you are subscribed.');">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aurea Dental Studio. All rights reserved.</span>
+      <span>Site by <a href="#">Aurea</a> · Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ duration: 900, once: true, offset: 60, easing: 'ease-out-cubic' });
+const header = document.getElementById('siteHeader');
+const scrollTopBtn = document.getElementById('scrollTop');
+const pageBanner = document.querySelector('.page-banner');
+function updateHeader(){
+  const y = window.scrollY;
+  const bannerH = pageBanner ? pageBanner.offsetHeight : 0;
+  if (y < bannerH - 100) { header.classList.add('transparent'); header.classList.remove('scrolled'); }
+  else { header.classList.remove('transparent'); header.classList.add('scrolled'); }
+  scrollTopBtn.classList.toggle('show', y > 600);
+}
+window.addEventListener('scroll', updateHeader);
+window.addEventListener('load', updateHeader);
+updateHeader();
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+const burger = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+burger.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') mobileNav.classList.remove('open'); });
+const navLinks = document.querySelectorAll('nav.main-nav a, .mobile-nav a');
+function fileOf(url) { let f = (url || '').split('#')[0].split('?')[0].split('/').pop().toLowerCase(); if (f === '' || f === 'home.html' || f === 'home') f = 'index.html'; return f; }
+function setActiveLink() { const currentPage = fileOf(window.location.pathname); navLinks.forEach(link => { if (link.classList.contains('btn')) return; link.classList.toggle('active', fileOf(link.getAttribute('href')) === currentPage); }); }
+window.addEventListener('DOMContentLoaded', setActiveLink);
+window.addEventListener('load', setActiveLink);
+</script>
+</body>
+</html>
